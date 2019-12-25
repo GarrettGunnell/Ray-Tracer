@@ -57,5 +57,11 @@ namespace RayTracerTests {
 			Assert::AreEqual(a->z, b.z);
 			Assert::AreEqual(a->w, b.w);
 		}
+
+		TEST_METHOD(TupleEquality) {
+			Tuple a = Tuple(1.0f, 1.0f, 1.0f, 0.0f);
+			Tuple b = Tuple(1.0f, 1.0f, 1.0f, 0.0f);
+			bool tupleIsEquivalent = (a == b);
+		}
 	};
 }
