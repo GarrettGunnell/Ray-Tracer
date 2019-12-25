@@ -61,7 +61,13 @@ namespace RayTracerTests {
 		TEST_METHOD(TupleEquality) {
 			Tuple a = Tuple(1.0f, 1.0f, 1.0f, 0.0f);
 			Tuple b = Tuple(1.0f, 1.0f, 1.0f, 0.0f);
-			bool tupleIsEquivalent = (a == b);
+			Assert::IsTrue(a == b);
+		}
+
+		TEST_METHOD(TupleInequality) {
+			Tuple a = Tuple(1.0f, 1.0f, 1.0f, 0.0f);
+			Tuple b = Tuple(2.0f, 2.0f, 2.0f, 1.0f);
+			Assert::IsTrue(a != b);
 		}
 	};
 }
