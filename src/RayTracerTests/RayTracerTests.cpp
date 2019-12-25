@@ -43,19 +43,19 @@ namespace RayTracerTests {
 		TEST_METHOD(APointIsAPoint) {
 			Tuple* a = point(4, -4, 3);
 			Tuple b = Tuple(4, -4, 3, 1);
-			Assert::AreEqual(a.x, b.x);
-			Assert::AreEqual(a.y, b.y);
-			Assert::AreEqual(a.z, b.z);
-			Assert::AreEqual(a.w, b.w);
+			Assert::AreEqual(a->x, b.x);
+			Assert::AreEqual(a->y, b.y);
+			Assert::AreEqual(a->z, b.z);
+			Assert::AreEqual(a->w, b.w);
 		}
 
 		TEST_METHOD(AVectorIsAVector) {
 			Tuple* a = vector(4, -4, 3);
 			Tuple b = Tuple(4, -4, 3, 0);
-			Assert::AreEqual(a.x, b.x);
-			Assert::AreEqual(a.y, b.y);
-			Assert::AreEqual(a.z, b.z);
-			Assert::AreEqual(a.w, b.w);
+			Assert::AreEqual(a->x, b.x);
+			Assert::AreEqual(a->y, b.y);
+			Assert::AreEqual(a->z, b.z);
+			Assert::AreEqual(a->w, b.w);
 		}
 	};
 }

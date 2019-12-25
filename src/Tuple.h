@@ -11,3 +11,6 @@ public:
 	bool isPoint();
 	bool isVector();
 };
+
+Tuple* point(float x, float y, float z);
+Tuple* vector(float x, float y, float z);

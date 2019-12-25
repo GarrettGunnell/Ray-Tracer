@@ -14,3 +14,13 @@ bool Tuple::isPoint() {
 bool Tuple::isVector() {
 	return this->w == 0.0;
 }
+
+Tuple* point(float x, float y, float z) {
+	Tuple* point = new Tuple(x, y, z, 1.0f);
+	return point;
+}
+
+Tuple* vector(float x, float y, float z) {
+	Tuple* vector = new Tuple(x, y, z, 0.0f);
+	return vector;
+}
