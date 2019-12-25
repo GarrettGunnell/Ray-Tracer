@@ -25,11 +25,15 @@ Tuple* vector(float x, float y, float z) {
 	return vector;
 }
 
+bool equal(float a, float b) {
+	return abs(a - b) < 0.00001;
+}
+
 bool operator== (const Tuple& p1, const Tuple& p2) {
-	return (p1.x == p2.x &&
-		p1.y == p2.y &&
-		p1.z == p2.z &&
-		p1.w == p2.w);
+	return (equal(p1.x, p2.x) &&
+		equal(p1.y, p2.y) &&
+		equal(p1.z, p2.z) &&
+		equal(p1.w, p2.w));
 }
 
 bool operator!= (const Tuple& p1, const Tuple& p2) {

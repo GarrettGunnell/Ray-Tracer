@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "CppUnitTest.h"
+#include <cstdlib>
 #include "../Tuple.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
