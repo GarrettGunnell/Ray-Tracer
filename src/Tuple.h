@@ -10,6 +10,9 @@ public:
 	Tuple(float x, float y, float z, float w);
 	bool isPoint();
 	bool isVector();
+
+	friend bool operator== (const Tuple& p1, const Tuple& p2);
+	friend bool operator!= (const Tuple& p1, const Tuple& p2);
 };
 
 Tuple* point(float x, float y, float z);

@@ -24,3 +24,14 @@ Tuple* vector(float x, float y, float z) {
 	Tuple* vector = new Tuple(x, y, z, 0.0f);
 	return vector;
 }
+
+bool operator== (const Tuple& p1, const Tuple& p2) {
+	return (p1.x == p2.x &&
+		p1.y == p2.y &&
+		p1.z == p2.z &&
+		p1.w == p2.w);
+}
+
+bool operator!= (const Tuple& p1, const Tuple& p2) {
+	return !(p1 == p2);
+}
