@@ -133,5 +133,23 @@ namespace RayTracerTests {
 			Tuple b = Tuple(0.5f, -1, 1.5f, -2);
 			Assert::IsTrue(a / 2 == b);
 		}
+
+		TEST_METHOD(Magnitude) {
+			Tuple* v1 = vector(1, 0, 0);
+			float magnitude = magnitude(*v1);
+			Assert::AreEqual(magnitude, 1);
+			Tuple* v2 = vector(0, 1, 0);
+			magnitude = magnitude(*v2);
+			Assert::AreEqual(magnitude, 1);
+			Tuple* v3 = vector(0, 0, 1);
+			magnitude = magnitude(*v3);
+			Assert::AreEqual(magnitude, 1);
+			Tuple* v4 = vector(1, 2, 3);
+			magnitude = magnitude(*v4);
+			Assert::AreEqual(magnitude, sqrt(14));
+			Tuple* v5 = vector(-1, -2, -3);
+			magnitude = magnitude(*v5);
+			Assert::AreEqual(magnitude, sqrt(14));
+		}
 	};
 }
