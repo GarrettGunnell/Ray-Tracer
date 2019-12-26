@@ -15,6 +15,10 @@ bool Tuple::isVector() {
 	return this->w == 0.0;
 }
 
+float Tuple::magnitude() {
+	return sqrt(this->x * this->x + this->y * this->y + this->z * this->z + this->w * this->w);
+}
+
 Tuple* point(float x, float y, float z) {
 	Tuple* point = new Tuple(x, y, z, 1.0f);
 	return point;
@@ -27,10 +31,6 @@ Tuple* vector(float x, float y, float z) {
 
 bool equal(float a, float b) {
 	return abs(a - b) < 0.00001;
-}
-
-float magnitude(Tuple* p) {
-	return sqrt(p->x * p->x + p->y * p->y + p->z * p->z + p->w * p->w);
 }
 
 bool operator== (const Tuple& p1, const Tuple& p2) {

@@ -136,19 +136,23 @@ namespace RayTracerTests {
 
 		TEST_METHOD(Magnitude) {
 			Tuple* v1 = vector(1, 0, 0);
-			float m = magnitude(v1);
+			float m = v1->magnitude();
 			Assert::AreEqual(m, 1.0f);
+
 			Tuple* v2 = vector(0, 1, 0);
-			m = magnitude(v2);
+			m = v2->magnitude();
 			Assert::AreEqual(m, 1.0f);
+
 			Tuple* v3 = vector(0, 0, 1);
-			m = magnitude(v3);
+			m = v3->magnitude();
 			Assert::AreEqual(m, 1.0f);
+
 			Tuple* v4 = vector(1, 2, 3);
-			m = magnitude(v4);
+			m = v4->magnitude();
 			Assert::AreEqual(m, float(sqrt(14)));
+
 			Tuple* v5 = vector(-1, -2, -3);
-			m = magnitude(v5);
+			m = v5->magnitude();
 			Assert::AreEqual(m, float(sqrt(14)));
 		}
 	};

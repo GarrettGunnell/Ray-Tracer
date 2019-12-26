@@ -11,6 +11,7 @@ public:
 	Tuple(float x, float y, float z, float w);
 	bool isPoint();
 	bool isVector();
+	float magnitude();
 
 	friend bool operator== (const Tuple& p1, const Tuple& p2);
 	friend bool operator!= (const Tuple& p1, const Tuple& p2);
@@ -24,4 +25,3 @@ public:
 Tuple* point(float x, float y, float z);
 Tuple* vector(float x, float y, float z);
 bool equal(float a, float b);
-float magnitude(Tuple* p);
