@@ -15,6 +15,8 @@ public:
 	friend bool operator== (const Tuple& p1, const Tuple& p2);
 	friend bool operator!= (const Tuple& p1, const Tuple& p2);
 	friend Tuple operator+ (const Tuple& p1, const Tuple& p2);
+	friend Tuple operator* (const Tuple& p, const float scalar);
+	friend Tuple operator/ (const Tuple& p, const float scalar);
 	friend Tuple operator- (const Tuple& p1, const Tuple& p2);
 	friend Tuple operator- (const Tuple& p);
 };
