@@ -42,6 +42,13 @@ Tuple* normalize(Tuple* p) {
 	return x;
 }
 
+float dot(Tuple* p1, Tuple* p2) {
+	return (p1->x * p2->x +
+		p1->y * p2->y +
+		p1->z * p2->z +
+		p1->w * p2->w);
+}
+
 bool operator== (const Tuple& p1, const Tuple& p2) {
 	return (equal(p1.x, p2.x) &&
 		equal(p1.y, p2.y) &&

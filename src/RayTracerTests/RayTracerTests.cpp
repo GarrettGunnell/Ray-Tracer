@@ -178,7 +178,16 @@ namespace RayTracerTests {
 		TEST_METHOD(DotProductOfTwoTuples) {
 			Tuple* a = vector(1, 2, 3);
 			Tuple* b = vector(2, 3, 4);
-			Assert::AreEqual(dot(a, b), 20);
+			Assert::AreEqual(dot(a, b), 20.0f);
+		}
+
+		TEST_METHOD(CrossProductOfTwoVectors) {
+			Tuple* a = vector(1, 2, 3);
+			Tuple* b = vector(2, 3, 4);
+			Tuple* crossab = vector(-1, 2, -1);
+			Tuple* crossba = vector(1, -2, 1);
+			Assert::IsTrue(cross(a, b) == crossab);
+			Assert::IsTrue(cross(b, a) == crossba);
 		}
 	};
 }
