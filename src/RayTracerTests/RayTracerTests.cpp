@@ -101,5 +101,19 @@ namespace RayTracerTests {
 			Tuple* c = vector(-2, -4, -6);
 			Assert::IsTrue((*a - *b) == *c);
 		}
+
+		TEST_METHOD(SubtractingFromZeroVector) {
+			Tuple* zero = vector(0, 0, 0);
+			Tuple* v = vector(1, -2, 3);
+			Tuple* vNegation = vector(-1, 2, -3);
+			Assert::IsTrue((*zero - *v) == *vNegation);
+		}
+
+		TEST_METHOD(TupleNegation) {
+			//A tuple subtracted from the zero vector is negated
+			Tuple a = Tuple(1, -2, 3, 4);
+			Tuple b = Tuple(-1, 2, -3, -4);
+			Assert::IsTrue(-a == b);
+		}
 	};
 }
