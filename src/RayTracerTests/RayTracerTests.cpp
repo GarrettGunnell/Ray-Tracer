@@ -155,5 +155,23 @@ namespace RayTracerTests {
 			m = v5->magnitude();
 			Assert::AreEqual(m, float(sqrt(14)));
 		}
+
+		TEST_METHOD(NormalizingAVector) {
+			Tuple* v = vector(4, 0, 0);
+			Tuple* nv = normalize(v);
+			Tuple* uv = vector(1, 0, 0);
+			Assert::IsTrue(*nv == *uv);
+
+			v = vector(1, 2, 3);
+			nv = normalize(v);
+			uv = vector(1 / sqrt(14), 2 / sqrt(14), 3 / sqrt(14));
+			Assert::IsTrue(*nv == *uv);
+		}
+
+		TEST_METHOD(MagnitudeOfNormalizedVector) {
+			Tuple* v = vector(1, 2, 3);
+			Tuple* nv = normalize(v);
+			Assert::AreEqual(nv->magnitude(), 1.0f);
+		}
 	};
 }
