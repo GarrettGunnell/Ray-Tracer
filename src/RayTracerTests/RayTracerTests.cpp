@@ -77,5 +77,29 @@ namespace RayTracerTests {
 			Tuple c = Tuple(1, 1, 6, 1);
 			Assert::IsTrue((a + b) == c);
 		}
+
+		TEST_METHOD(PointSubtraction) {
+			//A point minus a point is a vector
+			Tuple* a = point(3, 2, 1);
+			Tuple* b = point(5, 6, 7);
+			Tuple* c = vector(-2, -4, -6);
+			Assert::IsTrue((*a - *b) == *c);
+		}
+
+		TEST_METHOD(PointVectorSubtraction) {
+			//A point minus a vector is a point
+			Tuple* a = point(3, 2, 1);
+			Tuple* b = vector(5, 6, 7);
+			Tuple* c = point(-2, -4, -6);
+			Assert::IsTrue((*a - *b) == *c);
+		}
+
+		TEST_METHOD(VectorSubtraction) {
+			//A vector minus a vector is a vector
+			Tuple* a = vector(3, 2, 1);
+			Tuple* b = vector(5, 6, 7);
+			Tuple* c = vector(-2, -4, -6);
+			Assert::IsTrue((*a - *b) == *c);
+		}
 	};
 }
