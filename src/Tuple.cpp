@@ -47,3 +47,7 @@ Tuple operator+ (const Tuple& p1, const Tuple& p2) {
 Tuple operator- (const Tuple& p1, const Tuple& p2) {
 	return Tuple(p1.x - p2.x, p1.y - p2.y, p1.z - p2.z, p1.w - p2.w);
 }
+
+Tuple operator- (const Tuple& p) {
+	return Tuple(0 - p.x, 0 - p.y, 0 - p.z, 0 - p.w);
+}
