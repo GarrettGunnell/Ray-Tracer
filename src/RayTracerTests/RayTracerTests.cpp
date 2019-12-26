@@ -2,6 +2,7 @@
 #include "CppUnitTest.h"
 #include <cstdlib>
 #include "../Tuple.cpp"
+#include <iostream>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
@@ -164,14 +165,14 @@ namespace RayTracerTests {
 
 			v = vector(1, 2, 3);
 			nv = normalize(v);
-			uv = vector(1 / sqrt(14), 2 / sqrt(14), 3 / sqrt(14));
+			uv = vector(1 / float(sqrt(14)), 2 / float(sqrt(14)), 3 / float(sqrt(14)));
 			Assert::IsTrue(*nv == *uv);
 		}
 
 		TEST_METHOD(MagnitudeOfNormalizedVector) {
 			Tuple* v = vector(1, 2, 3);
 			Tuple* nv = normalize(v);
-			Assert::AreEqual(nv->magnitude(), 1.0f);
+			Assert::IsTrue(equal(nv->magnitude(), 1.0f));
 		}
 	};
 }
