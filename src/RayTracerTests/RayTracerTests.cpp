@@ -70,5 +70,12 @@ namespace RayTracerTests {
 			Tuple b = Tuple(1.0f, 1.0f, 1.0f, 1.0f);
 			Assert::IsTrue(a != b);
 		}
+
+		TEST_METHOD(TupleAddition) {
+			Tuple a = Tuple(3, -2, 5, 1);
+			Tuple b = Tuple(-2, 3, 1, 0);
+			Tuple c = Tuple(1, 1, 6, 1);
+			Assert::IsTrue((a + b) == c);
+		}
 	};
 }
