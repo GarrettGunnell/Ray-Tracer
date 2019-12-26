@@ -29,6 +29,10 @@ bool equal(float a, float b) {
 	return abs(a - b) < 0.00001;
 }
 
+float magnitude(Tuple* p) {
+	return sqrt(p->x * p->x + p->y * p->y + p->z * p->z + p->w * p->w);
+}
+
 bool operator== (const Tuple& p1, const Tuple& p2) {
 	return (equal(p1.x, p2.x) &&
 		equal(p1.y, p2.y) &&

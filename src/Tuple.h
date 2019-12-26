@@ -24,3 +24,4 @@ public:
 Tuple* point(float x, float y, float z);
 Tuple* vector(float x, float y, float z);
 bool equal(float a, float b);
+float magnitude(Tuple* p);
