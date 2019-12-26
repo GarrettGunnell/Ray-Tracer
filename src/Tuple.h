@@ -26,4 +26,5 @@ Tuple* point(float x, float y, float z);
 Tuple* vector(float x, float y, float z);
 Tuple* normalize(Tuple* p);
 float dot(Tuple* p1, Tuple* p2);
+Tuple* cross(Tuple* v1, Tuple* v2);
 bool equal(float a, float b);

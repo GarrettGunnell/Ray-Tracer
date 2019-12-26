@@ -3,8 +3,10 @@
 using namespace std;
 
 int main() {
-	Tuple* v = vector(1, 2, 3);
-	Tuple* nv = normalize(v);
-	cout << nv->magnitude();
+	Tuple* a = vector(1, 2, 3);
+	Tuple* b = vector(2, 3, 4);
+	Tuple* crossab = cross(b, a);
+
+	cout << crossab->x << ", " << crossab->y << ", " << crossab->z << endl;
 	return 0;
 }

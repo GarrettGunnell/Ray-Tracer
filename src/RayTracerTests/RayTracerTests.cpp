@@ -186,8 +186,10 @@ namespace RayTracerTests {
 			Tuple* b = vector(2, 3, 4);
 			Tuple* crossab = vector(-1, 2, -1);
 			Tuple* crossba = vector(1, -2, 1);
-			Assert::IsTrue(cross(a, b) == crossab);
-			Assert::IsTrue(cross(b, a) == crossba);
+			Tuple* crossabf = cross(a, b);
+			Tuple* crossbaf = cross(b, a);
+			Assert::IsTrue(*crossabf == *crossab);
+			Assert::IsTrue(*crossbaf == *crossba);
 		}
 	};
 }

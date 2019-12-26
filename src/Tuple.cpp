@@ -49,6 +49,12 @@ float dot(Tuple* p1, Tuple* p2) {
 		p1->w * p2->w);
 }
 
+Tuple* cross(Tuple* v1, Tuple* v2) {
+	return vector(v1->y * v2->z - v1->z * v2->y,
+		v1->z * v2->x - v1->x * v2->z,
+		v1->x * v2->y - v1->y * v2->x);
+}
+
 bool operator== (const Tuple& p1, const Tuple& p2) {
 	return (equal(p1.x, p2.x) &&
 		equal(p1.y, p2.y) &&
