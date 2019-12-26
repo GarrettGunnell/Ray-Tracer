@@ -174,5 +174,11 @@ namespace RayTracerTests {
 			Tuple* nv = normalize(v);
 			Assert::IsTrue(equal(nv->magnitude(), 1.0f));
 		}
+
+		TEST_METHOD(DotProductOfTwoTuples) {
+			Tuple* a = vector(1, 2, 3);
+			Tuple* b = vector(2, 3, 4);
+			Assert::AreEqual(dot(a, b), 20);
+		}
 	};
 }
