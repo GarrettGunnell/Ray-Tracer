@@ -115,5 +115,23 @@ namespace RayTracerTests {
 			Tuple b = Tuple(-1, 2, -3, -4);
 			Assert::IsTrue(-a == b);
 		}
+
+		TEST_METHOD(MultiplyingByAScalar) {
+			Tuple a = Tuple(1, -2, 3, -4);
+			Tuple b = Tuple(3.5, -7, 10.5, -14);
+			Assert::IsTrue(a * 3.5 == b);
+		}
+
+		TEST_METHOD(MultiplyingByAFraction) {
+			Tuple a = Tuple(1, -2, 3, -4);
+			Tuple b = Tuple(0.5f, -1, 1.5f, -2);
+			Assert::IsTrue(a * 0.5 == b);
+		}
+
+		TEST_METHOD(TupleDivision) {
+			Tuple a = Tuple(1, -2, 3, -4);
+			Tuple b = Tuple(0.5f, -1, 1.5f, -2);
+			Assert::IsTrue(a / 2 == b);
+		}
 	};
 }
