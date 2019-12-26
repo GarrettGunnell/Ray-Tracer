@@ -43,3 +43,7 @@ bool operator!= (const Tuple& p1, const Tuple& p2) {
 Tuple operator+ (const Tuple& p1, const Tuple& p2) {
 	return Tuple(p1.x + p2.x, p1.y + p2.y, p1.z + p2.z, p1.w + p2.w);
 }
+
+Tuple operator- (const Tuple& p1, const Tuple& p2) {
+	return Tuple(p1.x - p2.x, p1.y - p2.y, p1.z - p2.z, p1.w - p2.w);
+}

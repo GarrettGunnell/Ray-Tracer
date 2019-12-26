@@ -15,6 +15,7 @@ public:
 	friend bool operator== (const Tuple& p1, const Tuple& p2);
 	friend bool operator!= (const Tuple& p1, const Tuple& p2);
 	friend Tuple operator+ (const Tuple& p1, const Tuple& p2);
+	friend Tuple operator- (const Tuple& p1, const Tuple& p2);
 };
 
 Tuple* point(float x, float y, float z);
