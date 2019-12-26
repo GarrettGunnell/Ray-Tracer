@@ -33,6 +33,15 @@ bool equal(float a, float b) {
 	return abs(a - b) < 0.00001;
 }
 
+Tuple* normalize(Tuple* p) {
+	Tuple* x = new Tuple(p->x / p->magnitude(),
+		p->y / p->magnitude(),
+		p->z / p->magnitude(),
+		p->w / p->magnitude());
+
+	return x;
+}
+
 bool operator== (const Tuple& p1, const Tuple& p2) {
 	return (equal(p1.x, p2.x) &&
 		equal(p1.y, p2.y) &&

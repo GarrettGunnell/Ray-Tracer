@@ -24,4 +24,5 @@ public:
 
 Tuple* point(float x, float y, float z);
 Tuple* vector(float x, float y, float z);
+Tuple* normalize(Tuple* p);
 bool equal(float a, float b);
