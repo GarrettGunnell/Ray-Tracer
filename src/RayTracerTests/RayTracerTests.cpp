@@ -198,11 +198,11 @@ namespace RayTracerTests {
 	public:
 		
 		TEST_METHOD(AColorExists) {
-			Color c = Color(-0.5, 0.4, 1.7);
+			Color c = Color(-0.5f, 0.4f, 1.7f);
 
-			Assert::AreEqual(c.red, -0.5);
-			Assert::AreEqual(c.blue, 0.4);
-			Assert::AreEqual(c.green, 1.7);
+			Assert::AreEqual(c.red, -0.5f);
+			Assert::AreEqual(c.blue, 0.4f);
+			Assert::AreEqual(c.green, 1.7f);
 		}
 	};
 }
