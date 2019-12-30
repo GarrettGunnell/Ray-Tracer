@@ -11,3 +11,11 @@ Canvas::Canvas(int width, int height) {
 		}
 	}
 }
+
+void Canvas::writePixel(int x, int y, Color c) {
+	this->pixels[y][x] = c;
+}
+
+Color Canvas::pixelAt(int x, int y) {
+	return this->pixels[y][x];
+}

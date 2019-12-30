@@ -11,4 +11,6 @@ public:
 	vector<vector<Color>> pixels;
 
 	Canvas(int width, int height);
+	void writePixel(int x, int y, Color c);
+	Color pixelAt(int x, int y);
 };

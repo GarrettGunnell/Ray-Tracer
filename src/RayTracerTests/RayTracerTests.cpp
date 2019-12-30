@@ -258,8 +258,8 @@ namespace RayTracerTests {
 			Canvas c = Canvas(10, 20);
 			Color red = Color(1, 0, 0);
 
-			c.write_pixel(2, 3, red);
-			Assert::IsTrue(c.pixels[3][2] == red);
+			c.writePixel(2, 3, red);
+			Assert::IsTrue(c.pixelAt(2, 3) == red);
 		}
 	};
 }
