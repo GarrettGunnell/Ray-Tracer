@@ -261,5 +261,11 @@ namespace RayTracerTests {
 			c.writePixel(2, 3, red);
 			Assert::IsTrue(c.pixelAt(2, 3) == red);
 		}
+
+		TEST_METHOD(PPM_Header) {
+			Canvas c = Canvas(5, 3);
+			string s = "P3\n5 3\n255";
+			Assert::AreEqual(canvasToPPM(c), s);
+		}
 	};
 }
