@@ -204,5 +204,29 @@ namespace RayTracerTests {
 			Assert::AreEqual(c.blue, 0.4f);
 			Assert::AreEqual(c.green, 1.7f);
 		}
+
+		TEST_METHOD(ColorAddition) {
+			Color c1 = Color(0.9f, 0.6f, 0.75f);
+			Color c2 = Color(0.7f, 0.1f, 0.25f);
+			Color c3 = Color(1.6f, 0.7f, 1.0f);
+
+			Assert::AreEqual(c1 + c2, c3);
+		}
+
+		TEST_METHOD(ColorSubtraction) {
+			Color c1 = Color(0.9f, 0.6f, 0.75f);
+			Color c2 = Color(0.7f, 0.1f, 0.25f);
+			Color c3 = Color(0.2f, 0.5f, 0.5f);
+
+			Assert::AreEqual(c1 - c2, c3);
+		}
+
+		TEST_METHOD(ColorMultiplication) {
+			Color c1 = Color(1.0f, 0.2f, 0.4f);
+			Color c2 = Color(0.9f, 1.0f, 0.1f);
+			Color c3 = Color(0.9f, 0.2f, 0.04f);
+
+			Assert::AreEqual(c1 * c2, c3);
+		}
 	};
 }
