@@ -2,6 +2,7 @@
 #include "CppUnitTest.h"
 #include <cstdlib>
 #include "../Tuple.cpp"
+#include "../Color.cpp"
 #include <iostream>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -190,6 +191,18 @@ namespace RayTracerTests {
 			Tuple* crossbaf = cross(b, a);
 			Assert::IsTrue(*crossabf == *crossab);
 			Assert::IsTrue(*crossbaf == *crossba);
+		}
+	};
+
+	TEST_CLASS(Colors) {
+	public:
+		
+		TEST_METHOD(AColorExists) {
+			Color c = Color(-0.5, 0.4, 1.7);
+
+			Assert::AreEqual(c.red, -0.5);
+			Assert::AreEqual(c.blue, 0.4);
+			Assert::AreEqual(c.green, 1.7);
 		}
 	};
 }
