@@ -22,8 +22,8 @@ public:
 	friend Tuple operator- (const Tuple& p);
 };
 
-Tuple* point(float x, float y, float z);
-Tuple* vector(float x, float y, float z);
+Tuple* Point(float x, float y, float z);
+Tuple* Vector(float x, float y, float z);
 Tuple* normalize(Tuple* p);
 float dot(Tuple* p1, Tuple* p2);
 Tuple* cross(Tuple* v1, Tuple* v2);

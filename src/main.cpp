@@ -1,12 +1,11 @@
 #include <iostream>
 #include "Tuple.h"
+#include "Canvas.h"
 using namespace std;
 
 int main() {
-	Tuple* a = vector(1, 2, 3);
-	Tuple* b = vector(2, 3, 4);
-	Tuple* crossab = cross(b, a);
+	Canvas c = Canvas(10, 20);
 
-	cout << crossab->x << ", " << crossab->y << ", " << crossab->z << endl;
+	cout << c.pixels[5][10].red << endl;
 	return 0;
 }

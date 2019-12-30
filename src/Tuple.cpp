@@ -19,12 +19,12 @@ float Tuple::magnitude() {
 	return sqrt(this->x * this->x + this->y * this->y + this->z * this->z + this->w * this->w);
 }
 
-Tuple* point(float x, float y, float z) {
+Tuple* Point(float x, float y, float z) {
 	Tuple* point = new Tuple(x, y, z, 1.0f);
 	return point;
 }
 
-Tuple* vector(float x, float y, float z) {
+Tuple* Vector(float x, float y, float z) {
 	Tuple* vector = new Tuple(x, y, z, 0.0f);
 	return vector;
 }
@@ -50,7 +50,7 @@ float dot(Tuple* p1, Tuple* p2) {
 }
 
 Tuple* cross(Tuple* v1, Tuple* v2) {
-	return vector(v1->y * v2->z - v1->z * v2->y,
+	return Vector(v1->y * v2->z - v1->z * v2->y,
 		v1->z * v2->x - v1->x * v2->z,
 		v1->x * v2->y - v1->y * v2->x);
 }
