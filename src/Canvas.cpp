@@ -19,3 +19,12 @@ void Canvas::writePixel(int x, int y, Color c) {
 Color Canvas::pixelAt(int x, int y) {
 	return this->pixels[y][x];
 }
+
+vector<string> canvasToPPM(Canvas* c) {
+	vector<string> ppmString;
+	ppmString.push_back("P3");
+	ppmString.push_back(to_string(c->width) + " " + to_string(c->height));
+	ppmString.push_back("255");
+
+	return ppmString;
+}

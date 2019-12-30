@@ -1,5 +1,6 @@
 #pragma once
 #include "Color.h"
+#include <string>
 #include <vector>
 
 using namespace std;
@@ -14,3 +15,5 @@ public:
 	void writePixel(int x, int y, Color c);
 	Color pixelAt(int x, int y);
 };
+
+vector<string> canvasToPPM(Canvas* c);

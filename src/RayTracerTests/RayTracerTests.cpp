@@ -247,8 +247,8 @@ namespace RayTracerTests {
 			Assert::AreEqual(c.height, 20);
 
 			Color c1 = Color(0, 0, 0);
-			for (int i = 0; i < c.width; ++i) {
-				for (int j = 0; j < c.height; ++j) {
+			for (int i = 0; i < c.height; ++i) {
+				for (int j = 0; j < c.width; ++j) {
 					Assert::IsTrue(c.pixels[i][j] == c1);
 				}
 			}
@@ -264,8 +264,12 @@ namespace RayTracerTests {
 
 		TEST_METHOD(PPM_Header) {
 			Canvas c = Canvas(5, 3);
-			string s = "P3\n5 3\n255";
-			Assert::AreEqual(canvasToPPM(c), s);
+			string s1 = "P3";
+			string s2 = "5 3";
+			string s3 = "255";
+			Assert::AreEqual(canvasToPPM(&c)[0], s1);
+			Assert::AreEqual(canvasToPPM(&c)[1], s2);
+			Assert::AreEqual(canvasToPPM(&c)[2], s3);
 		}
 	};
 }
