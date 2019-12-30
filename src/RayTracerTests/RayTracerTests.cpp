@@ -236,4 +236,22 @@ namespace RayTracerTests {
 			Assert::IsTrue(c1 * c2 == c3);
 		}
 	};
+
+	TEST_CLASS(Canvas) {
+	public:
+
+		TEST_METHOD(ACanvasExists) {
+			Canvas c = Canvas(10, 20);
+			
+			Assert::AreEqual(c.width, 10);
+			Assert::AreEqual(c.height, 20);
+
+			Color c1 = Color(0, 0, 0);
+			for (int i = 0; i < c.width; ++i) {
+				for (int j = 0; l < c.height; ++j) {
+					Assert::IsTrue(c.pixels[i][j] == c1);
+				}
+			}
+		}
+	};
 }
