@@ -289,5 +289,24 @@ namespace RayTracerTests {
 			Assert::AreEqual(ppm[4], s2);
 			Assert::AreEqual(ppm[5], s3);
 		}
+
+		TEST_METHOD(SplitLongLines) {
+			Canvas c = Canvas(10, 2);
+			for (int i = 0; i < c.height; ++i) {
+				for (int j = 0; j < c.width; ++j) {
+					c.writePixel(j, i, Color(1, 0.8, 0.6));
+				}
+			}
+
+			vector<string> ppm = canvasToPPM(&c);
+			string s1 = "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204";
+			string s2 = "153 255 204 153 255 204 153 255 204 153 255 204 153";
+			string s3 = "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204";
+			string s4 = "153 255 204 153 255 204 153 255 204 153 255 204 153";
+			Assert::AreEqual(ppm[3], s1);
+			Assert::AreEqual(ppm[4], s2);
+			Assert::AreEqual(ppm[5], s3);
+			Assert::AreEqual(ppm[6], s4);
+		}
 	};
 }
