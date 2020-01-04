@@ -59,6 +59,7 @@ vector<string> canvasToPPM(Canvas* c) {
 		}
 		ppmString.push_back(tempPPM);
 	}
+	ppmString[ppmString.size() - 1] += "\n";
 
 	return ppmString;
 }
