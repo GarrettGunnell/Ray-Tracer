@@ -39,12 +39,8 @@ vector<string> canvasToPPM(Canvas* c) {
 			b = pixel->blue <= 0 ? 0 : pixel->blue;
 			b = pixel->blue >= 1.0 ? 255 : b * 256;
 
-			if (tempPPM.length() == 0) {
-				tempPPM += to_string(int(r)) + " " + to_string(int(g)) + " " + to_string(int(b));
-			}
-			else {
-				tempPPM += " " + to_string(int(r)) + " " + to_string(int(g)) + " " + to_string(int(b));
-			}
+			string pixelString = to_string(int(r)) + " " + to_string(int(g)) + " " + to_string(int(b));
+			tempPPM += tempPPM.length() == 0 ? pixelString : " " + pixelString;
 		}
 		ppmString.push_back(tempPPM);
 	}
