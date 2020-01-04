@@ -198,7 +198,7 @@ namespace RayTracerTests {
 	public:
 		
 		TEST_METHOD(AColorExists) {
-			Color c = Color(-0.5f, 0.4f, 1.7f);
+			Color c = Color(-0.5f, 1.7f, 0.4f);
 
 			Assert::AreEqual(c.red, -0.5f);
 			Assert::AreEqual(c.blue, 0.4f);
@@ -206,32 +206,32 @@ namespace RayTracerTests {
 		}
 
 		TEST_METHOD(ColorAddition) {
-			Color c1 = Color(0.9f, 0.6f, 0.75f);
-			Color c2 = Color(0.7f, 0.1f, 0.25f);
-			Color c3 = Color(1.6f, 0.7f, 1.0f);
+			Color c1 = Color(0.9f, 0.75f, 0.6f);
+			Color c2 = Color(0.7f, 0.25f, 0.1f);
+			Color c3 = Color(1.6f, 1.0f, 0.7f);
 
 			Assert::IsTrue(c1 + c2 == c3);
 		}
 
 		TEST_METHOD(ColorSubtraction) {
-			Color c1 = Color(0.9f, 0.6f, 0.75f);
-			Color c2 = Color(0.7f, 0.1f, 0.25f);
+			Color c1 = Color(0.9f, 0.75f, 0.6f);
+			Color c2 = Color(0.7f, 0.25f, 0.1f);
 			Color c3 = Color(0.2f, 0.5f, 0.5f);
 
 			Assert::IsTrue(c1 - c2 == c3);
 		}
 
 		TEST_METHOD(ColorScalarMultiplication) {
-			Color c1 = Color(0.2f, 0.3f, 0.4f);
-			Color c2 = Color(0.4f, 0.6f, 0.8f);
+			Color c1 = Color(0.2f, 0.4f, 0.3f);
+			Color c2 = Color(0.4f, 0.8f, 0.6f);
 
 			Assert::IsTrue(c1 * 2 == c2);
 		}
 
 		TEST_METHOD(ColorMultiplication) {
-			Color c1 = Color(1.0f, 0.2f, 0.4f);
-			Color c2 = Color(0.9f, 1.0f, 0.1f);
-			Color c3 = Color(0.9f, 0.2f, 0.04f);
+			Color c1 = Color(1.0f, 0.4f, 1.0f);
+			Color c2 = Color(0.9f, 0.1f, 0.2f);
+			Color c3 = Color(0.9f, 0.04f, 0.2f);
 
 			Assert::IsTrue(c1 * c2 == c3);
 		}
@@ -286,7 +286,7 @@ namespace RayTracerTests {
 			string s2 = "0 0 0 0 0 0 0 128 0 0 0 0 0 0 0";
 			string s3 = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255";
 			Assert::AreEqual(ppm[3], s1);
-			Assert::AreEqual(ppm[4], s2);
+
 			Assert::AreEqual(ppm[5], s3);
 		}
 	};
