@@ -271,5 +271,23 @@ namespace RayTracerTests {
 			Assert::AreEqual(canvasToPPM(&c)[1], s2);
 			Assert::AreEqual(canvasToPPM(&c)[2], s3);
 		}
+
+		TEST_METHOD(PPM_Body) {
+			Canvas c = Canvas(5, 3);
+			Color c1 = Color(1.5, 0, 0);
+			Color c2 = Color(0, 0.5, 0);
+			Color c3 = Color(-0.5, 0, 1);
+			c.writePixel(0, 0, c1);
+			c.writePixel(2, 1, c2);
+			c.writePixel(4, 2, c3);
+			vector<string> ppm = canvasToPPM(&c);
+
+			string s1 = "255 0 0 0 0 0 0 0 0 0 0 0 0 0 0";
+			string s2 = "0 0 0 0 0 0 0 128 0 0 0 0 0 0 0";
+			string s3 = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255";
+			Assert::AreEqual(ppm[3], s1);
+			Assert::AreEqual(ppm[4], s2);
+			Assert::AreEqual(ppm[5], s3);
+		}
 	};
 }

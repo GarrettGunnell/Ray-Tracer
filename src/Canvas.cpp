@@ -26,5 +26,11 @@ vector<string> canvasToPPM(Canvas* c) {
 	ppmString.push_back(to_string(c->width) + " " + to_string(c->height));
 	ppmString.push_back("255");
 
+	for (int i = 0; i < c->height; ++i) {
+		for (int j = 0; j < c->width; ++j) {
+			int a;
+		}
+	}
+
 	return ppmString;
 }
