@@ -286,7 +286,7 @@ namespace RayTracerTests {
 			string s2 = "0 0 0 0 0 0 0 128 0 0 0 0 0 0 0";
 			string s3 = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255";
 			Assert::AreEqual(ppm[3], s1);
-
+			Assert::AreEqual(ppm[4], s2);
 			Assert::AreEqual(ppm[5], s3);
 		}
 	};
