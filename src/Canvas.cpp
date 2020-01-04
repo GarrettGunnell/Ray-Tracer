@@ -20,6 +20,20 @@ Color Canvas::pixelAt(int x, int y) {
 	return this->pixels[y][x];
 }
 
+string* convertColorValues(Color* pixel) {
+	float r, g, b;
+
+	r = pixel->red <= 0 ? 0 : pixel->red;
+	r = pixel->red >= 1.0 ? 255 : r * 256;
+	g = pixel->green <= 0 ? 0 : pixel->green;
+	g = pixel->green >= 1.0 ? 255 : g * 256;
+	b = pixel->blue <= 0 ? 0 : pixel->blue;
+	b = pixel->blue >= 1.0 ? 255 : b * 256;
+
+	string* pixels = new string[3]{ to_string(int(r)), to_string(int(g)), to_string(int(b)) };
+	return pixels;
+}
+
 vector<string> canvasToPPM(Canvas* c) {
 	vector<string> ppmString;
 	ppmString.push_back("P3");
@@ -30,15 +44,7 @@ vector<string> canvasToPPM(Canvas* c) {
 		string tempPPM = "";
 		for (int j = 0; j < c->width; ++j) {
 			Color* pixel = &c->pixelAt(j, i);
-			float r, g, b;
-
-			r = pixel->red <= 0 ? 0 : pixel->red;
-			r = pixel->red >= 1.0 ? 255 : r * 256;
-			g = pixel->green <= 0 ? 0 : pixel->green;
-			g = pixel->green >= 1.0 ? 255 : g * 256;
-			b = pixel->blue <= 0 ? 0 : pixel->blue;
-			b = pixel->blue >= 1.0 ? 255 : b * 256;
-			string pixels[] = { to_string(int(r)), to_string(int(g)), to_string(int(b)) };
+			string* pixels = convertColorValues(pixel);
 
 			for (int k = 0; k < 3; ++k) {
 				if (tempPPM.length() + pixels[k].length() + 1 > 70) {
@@ -49,6 +55,7 @@ vector<string> canvasToPPM(Canvas* c) {
 					tempPPM += tempPPM.length() == 0 ? pixels[k] : " " + pixels[k];
 				}
 			}
+			delete[]pixels;
 		}
 		ppmString.push_back(tempPPM);
 	}

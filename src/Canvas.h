@@ -17,3 +17,4 @@ public:
 };
 
 vector<string> canvasToPPM(Canvas* c);
+string* convertColorValues(Color* pixel);
