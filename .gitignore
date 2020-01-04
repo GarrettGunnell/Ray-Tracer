@@ -3,4 +3,5 @@
 *.filters
 *.user
 *.vs
+*.ppm
 Debug/
