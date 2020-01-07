@@ -285,7 +285,7 @@ namespace RayTracerTests {
 
 			string s1 = "255 0 0 0 0 0 0 0 0 0 0 0 0 0 0";
 			string s2 = "0 0 0 0 0 0 0 128 0 0 0 0 0 0 0";
-			string s3 = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255";
+			string s3 = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255\n";
 			Assert::AreEqual(ppm[3], s1);
 			Assert::AreEqual(ppm[4], s2);
 			Assert::AreEqual(ppm[5], s3);
@@ -303,7 +303,7 @@ namespace RayTracerTests {
 			string s1 = "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204";
 			string s2 = "153 255 204 153 255 204 153 255 204 153 255 204 153";
 			string s3 = "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204";
-			string s4 = "153 255 204 153 255 204 153 255 204 153 255 204 153";
+			string s4 = "153 255 204 153 255 204 153 255 204 153 255 204 153\n";
 			Assert::AreEqual(ppm[3], s1);
 			Assert::AreEqual(ppm[4], s2);
 			Assert::AreEqual(ppm[5], s3);

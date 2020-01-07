@@ -8,6 +8,16 @@ Matrix::Matrix(int size) {
 	}
 }
 
+void Matrix::rowOne(float a, float b) {
+	this->data[0][0] = a;
+	this->data[0][1] = b;
+}
+
+void Matrix::rowOne(float a, float b, float c) {
+	this->data[0][0] = a;
+	this->data[0][1] = b;
+	this->data[0][2] = c;
+}
 
 void Matrix::rowOne(float a, float b, float c, float d) {
 	this->data[0][0] = a;
@@ -16,11 +26,28 @@ void Matrix::rowOne(float a, float b, float c, float d) {
 	this->data[0][3] = d;
 }
 
+void Matrix::rowTwo(float a, float b) {
+	this->data[1][0] = a;
+	this->data[1][1] = b;
+}
+
+void Matrix::rowTwo(float a, float b, float c) {
+	this->data[1][0] = a;
+	this->data[1][1] = b;
+	this->data[1][2] = c;
+}
+
 void Matrix::rowTwo(float a, float b, float c, float d) {
 	this->data[1][0] = a;
 	this->data[1][1] = b;
 	this->data[1][2] = c;
 	this->data[1][3] = d;
+}
+
+void Matrix::rowThree(float a, float b, float c) {
+	this->data[2][0] = a;
+	this->data[2][1] = b;
+	this->data[2][2] = c;
 }
 
 void Matrix::rowThree(float a, float b, float c, float d) {
