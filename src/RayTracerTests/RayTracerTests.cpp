@@ -4,6 +4,7 @@
 #include "../Tuple.cpp"
 #include "../Color.cpp"
 #include "../Canvas.cpp"
+#include "../Matrix.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
@@ -321,13 +322,13 @@ namespace RayTracerTests {
 			M.rowThree(9, 10, 11, 12);
 			M.rowFour(13.5f, 14.5f, 15.5f, 16.5f);
 			
-			Assert::AreEqual(M[0, 0], 1);
-			Assert::AreEqual(M[0, 3], 4);
-			Assert::AreEqual(M[1, 0], 5.5);
-			Assert::AreEqual(M[1, 2], 7.5);
-			Assert::AreEqual(M[2, 2], 11);
-			Assert::AreEqual(M[3, 0], 13.5);
-			Assert::AreEqual(M[3, 2], 15.5);
+			Assert::AreEqual(M(0, 0), 1.0f);
+			Assert::AreEqual(M(0, 3), 4.0f);
+			Assert::AreEqual(M(1, 0), 5.5f);
+			Assert::AreEqual(M(1, 2), 7.5f);
+			Assert::AreEqual(M(2, 2), 11.0f);
+			Assert::AreEqual(M(3, 0), 13.5f);
+			Assert::AreEqual(M(3, 2), 15.5f);
 		}
 	};
 }
