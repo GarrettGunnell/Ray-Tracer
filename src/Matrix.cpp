@@ -70,3 +70,27 @@ float& Matrix::operator()(int index1, int index2) {
 	}
 	return this->data[index1][index2];
 }
+
+bool operator== (Matrix& A, Matrix& B) {
+	bool isEqual = false;
+	if (A.size == B.size) {
+		isEqual = true;
+		for (int i = 0; i < A.size; ++i) {
+			if (!isEqual) {
+				break;
+			}
+			for (int j = 0; j < A.size; ++j) {
+				if (!equal(A(i, j), B(i, j))) {
+					isEqual = false;
+					break;
+				}
+			}
+		}
+	}
+
+	return isEqual;
+}
+
+bool operator!= (Matrix& A, Matrix& B) {
+	return !(A == B);
+}
