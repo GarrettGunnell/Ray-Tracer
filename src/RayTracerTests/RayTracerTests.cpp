@@ -354,5 +354,37 @@ namespace RayTracerTests {
 			Assert::AreEqual(M(1, 1), -2.0f);
 			Assert::AreEqual(M(2, 2), 1.0f);
 		}
+
+		TEST_METHOD(MatrixEquality) {
+			Matrix A = Matrix(4);
+			A.rowOne(1, 2, 3, 4);
+			A.rowTwo(5, 6, 7, 8);
+			A.rowThree(9, 8, 7, 6);
+			A.rowFour(5, 4, 3, 2);
+
+			Matrix B = Matrix(4);
+			B.rowOne(1, 2, 3, 4);
+			B.rowTwo(5, 6, 7, 8);
+			B.rowThree(9, 8, 7, 6);
+			B.rowFour(5, 4, 3, 2);
+
+			Assert::IsTrue(A == B);
+		}
+
+		TEST_METHOD(MatrixInequality) {
+			Matrix A = Matrix(4);
+			A.rowOne(1, 2, 3, 4);
+			A.rowTwo(5, 6, 7, 8);
+			A.rowThree(9, 8, 7, 6);
+			A.rowFour(5, 4, 3, 2);
+
+			Matrix B = Matrix(4);
+			B.rowOne(1, 2, 3, 4);
+			B.rowTwo(5, 6, 7, 8);
+			B.rowThree(9, 8, 7, 6);
+			B.rowFour(1, 1, 1, 1);
+
+			Assert::IsTrue(A != B);
+		}
 	};
 }
