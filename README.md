@@ -8,4 +8,4 @@ Ray Tracer Challenge</u>. You can find the book
 ## Progress
 
 ### Chapter 2
-![Sin Wave](https://puu.sh/EWh8L.png)
+![Sin Wave](https://i.imgur.com/ZIdkeBX.png)
