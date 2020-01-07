@@ -330,5 +330,29 @@ namespace RayTracerTests {
 			Assert::AreEqual(M(3, 0), 13.5f);
 			Assert::AreEqual(M(3, 2), 15.5f);
 		}
+
+		TEST_METHOD(A2DMatrixExists) {
+			Matrix M = Matrix(2);
+
+			M.rowOne(-3, 5);
+			M.rowTwo(1, -2);
+
+			Assert::AreEqual(M(0, 0), -3.0f);
+			Assert::AreEqual(M(0, 1), 5.0f);
+			Assert::AreEqual(M(1, 0), 1.0f);
+			Assert::AreEqual(M(1, 1), -2.0f);
+		}
+
+		TEST_METHOD(A3DMatrixExists) {
+			Matrix M = Matrix(3);
+
+			M.rowOne(-3, 5, 0);
+			M.rowTwo(1, -2, -7);
+			M.rowThree(0, 1, 1);
+
+			Assert::AreEqual(M(0, 0), -3.0f);
+			Assert::AreEqual(M(1, 1), -2.0f);
+			Assert::AreEqual(M(2, 2), 1.0f);
+		}
 	};
 }
