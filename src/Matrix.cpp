@@ -197,3 +197,22 @@ Matrix subMatrix(Matrix M, int row, int col) {
 
 	return A;
 }
+
+Matrix inverse(Matrix M) {
+	if (!M.invertible()) {
+		std::cout << "Matrix has no inverse" << std::endl;
+		exit(0);
+	}
+
+	Matrix A = Matrix(M.size);
+
+	for (int row = 0; row < M.size; ++row) {
+		for (int col = 0; col < M.size; ++col) {
+			float c = cofactor(M, row, col);
+
+			A(col, row) = c / determinant(M);
+		}
+	}
+
+	return A;
+}
