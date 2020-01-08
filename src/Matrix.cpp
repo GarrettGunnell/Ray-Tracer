@@ -8,6 +8,17 @@ Matrix::Matrix(int size) {
 	}
 }
 
+void Matrix::row(int row, float a, float b) {
+	this->data[row][0] = a;
+	this->data[row][1] = b;
+}
+
+void Matrix::row(int row, float a, float b, float c) {
+	this->data[row][0] = a;
+	this->data[row][1] = b;
+	this->data[row][2] = c;
+}
+
 void Matrix::rowOne(float a, float b) {
 	this->data[0][0] = a;
 	this->data[0][1] = b;
@@ -150,4 +161,28 @@ Matrix transpose(Matrix M) {
 
 float determinant(Matrix M) {
 	return M(0, 0) * M(1, 1) - M(0, 1) * M(1, 0);
+}
+
+Matrix subMatrix(Matrix M, int row, int col) {
+	Matrix A = Matrix(M.size - 1);
+	int curRow = 0;
+
+	for (int i = 0; i < M.size; ++i) {
+		std::cout << curRow << std::endl;
+		if (i == row) {
+			continue;
+		}
+		int curCol = 0;
+		for (int j = 0; j < M.size; ++j) {
+			std::cout << curCol << std::endl;
+			if (j == col) {
+				continue;
+			}
+			A(curRow, curCol) = M(i, j);
+			curCol++;
+		}
+		curRow++;
+	}
+
+	return A;
 }

@@ -3,6 +3,7 @@
 #include <math.h>
 #include "Tuple.h"
 #include "Canvas.h"
+#include "Matrix.h"
 using namespace std;
 
 double map(double input, double input_start, double input_end, double output_start, double output_end) {
@@ -26,5 +27,16 @@ int main() {
 		ppmFile << ppm[i] << endl;
 	}
 	*/
+
+	Matrix A = Matrix(3);
+	A.rowOne(1, 5, 0);
+	A.rowTwo(-3, 2, 7);
+	A.rowThree(0, 6, -3);
+
+
+	Matrix C = subMatrix(A, 0, 2);
+
+	cout << C(0, 0) << " " << C(0, 1) << endl;
+	cout << C(1, 0) << " " << C(1, 1) << endl;
 	return 0;
 }

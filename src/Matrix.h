@@ -10,6 +10,8 @@ private:
 public:
 	int size;
 	Matrix(int size);
+	void row(int row, float a, float b);
+	void row(int row, float a, float b, float c);
 	void rowOne(float a, float b);
 	void rowOne(float a, float b, float c);
 	void rowOne(float a, float b, float c, float d);
@@ -31,3 +33,4 @@ public:
 Matrix IdentityMatrix();
 Matrix transpose(Matrix M);
 float determinant(Matrix M);
+Matrix subMatrix(Matrix M, int row, int col);
