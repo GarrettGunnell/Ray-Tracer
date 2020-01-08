@@ -549,5 +549,29 @@ namespace RayTracerTests {
 
 			Assert::IsFalse(B.invertible());
 		}
+
+		TEST_METHOD(InverseMatrix) {
+			Matrix A = Matrix(4);
+			A.rowOne(-5, 2, 6, -8);
+			A.rowTwo(1, -5, 1, 8);
+			A.rowThree(7, 7, -6, -7);
+			A.rowFour(1, -3, 7, 4);
+
+			Matrix B = inverse(A);
+
+			Assert::AreEqual(determinant(A), 532.0f);
+			Assert::AreEqual(cofactor(A, 2, 3), -160.0f);
+			Assert::AreEqual(B(3, 2), -160.0f / 532.0f);
+			Assert::AreEqual(cofactor(A, 3, 2), 105.0f);
+			Assert::AreEqual(B(2, 3), 105.0f / 532.0f);
+
+			Matrix C = Matrix(4);
+			C.rowOne(0.21805, 0.45113, 0.24060, -0.04511);
+			C.rowTwo(-0.80827, -1.45677, -0.44361, 0.52068);
+			C.rowThree(-0.07895, -0.22368, -0.05263, 0.19737);
+			C.rowFour(-0.52256, -0.81391, -0.30075, 0.30639);
+
+			Assert::IsTrue(B == C);
+		}
 	};
 }
