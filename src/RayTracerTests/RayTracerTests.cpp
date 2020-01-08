@@ -431,5 +431,21 @@ namespace RayTracerTests {
 			Matrix IDENTITY_MATRIX = IdentityMatrix();
 			Assert::IsTrue(A * IDENTITY_MATRIX == A);
 		}
+
+		TEST_METHOD(TransposeMatrix) {
+			Matrix A = Matrix(4);
+			A.rowOne(0, 9, 3, 0);
+			A.rowTwo(9, 8, 0, 8);
+			A.rowThree(1, 8, 5, 3);
+			A.rowFour(0, 0, 5, 8);
+
+			Matrix TA = Matrix(4);
+			TA.rowOne(0, 9, 1, 0);
+			TA.rowTwo(9, 8, 8, 0);
+			TA.rowThree(3, 0, 5, 5);
+			TA.rowFour(0, 8, 3, 8);
+
+			Assert::IsTrue(Transpose(A) == TA);
+		}
 	};
 }
