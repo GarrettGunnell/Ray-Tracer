@@ -420,5 +420,16 @@ namespace RayTracerTests {
 
 			Assert::IsTrue(A * b == Tuple(18, 24, 33, 1));
 		}
+
+		TEST_METHOD(IdentityMatrixMultiplication) {
+			Matrix A = Matrix(4);
+			A.rowOne(0, 1, 2, 4);
+			A.rowTwo(1, 2, 4, 8);
+			A.rowThree(2, 4, 8, 16);
+			A.rowFour(4, 8, 16, 32);
+
+			Matrix IDENTITY_MATRIX = IdentityMatrix();
+			Assert::IsTrue(A * IDENTITY_MATRIX == A);
+		}
 	};
 }
