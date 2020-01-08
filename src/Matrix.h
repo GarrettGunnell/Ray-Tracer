@@ -10,8 +10,6 @@ private:
 public:
 	int size;
 	Matrix(int size);
-	void row(int row, float a, float b);
-	void row(int row, float a, float b, float c);
 	void rowOne(float a, float b);
 	void rowOne(float a, float b, float c);
 	void rowOne(float a, float b, float c, float d);
@@ -21,6 +19,8 @@ public:
 	void rowThree(float a, float b, float c);
 	void rowThree(float a, float b, float c, float d);
 	void rowFour(float a, float b, float c, float d);
+
+	bool invertible();
 
 	float& operator()(const int index1, const int index2);
 

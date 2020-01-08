@@ -8,17 +8,6 @@ Matrix::Matrix(int size) {
 	}
 }
 
-void Matrix::row(int row, float a, float b) {
-	this->data[row][0] = a;
-	this->data[row][1] = b;
-}
-
-void Matrix::row(int row, float a, float b, float c) {
-	this->data[row][0] = a;
-	this->data[row][1] = b;
-	this->data[row][2] = c;
-}
-
 void Matrix::rowOne(float a, float b) {
 	this->data[0][0] = a;
 	this->data[0][1] = b;
@@ -72,6 +61,10 @@ void Matrix::rowFour(float a, float b, float c, float d) {
 	this->data[3][1] = b;
 	this->data[3][2] = c;
 	this->data[3][3] = d;
+}
+
+bool Matrix::invertible() {
+	return determinant(*this) != 0;
 }
 
 float& Matrix::operator()(int index1, int index2) {
