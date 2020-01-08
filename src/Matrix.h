@@ -24,4 +24,5 @@ public:
 
 	friend bool operator== (Matrix& A, Matrix& B);
 	friend bool operator!= (Matrix& A, Matrix& B);
+	friend Matrix operator* (Matrix& A, Matrix& B);
 };

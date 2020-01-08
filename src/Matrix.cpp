@@ -94,3 +94,23 @@ bool operator== (Matrix& A, Matrix& B) {
 bool operator!= (Matrix& A, Matrix& B) {
 	return !(A == B);
 }
+
+Matrix operator* (Matrix& A, Matrix& B) {
+	if (A.size != 4 || B.size != 4) {
+		std::cout << "Multiplication on Matrix not of size 4";
+		exit(0);
+	}
+
+	Matrix C = Matrix(4);
+
+	for (int row = 0; row < 4; ++row) {
+		for (int col = 0; col < 4; ++col) {
+			C(row, col) = A(row, 0) * B(0, col) +
+						  A(row, 1) * B(1, col) +
+						  A(row, 2) * B(2, col) +
+						  A(row, 3) * B(3, col);
+		}
+	}
+
+	return C;
+}

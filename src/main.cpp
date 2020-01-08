@@ -10,6 +10,7 @@ double map(double input, double input_start, double input_end, double output_sta
 }
 
 int main() {
+	/*
 	Canvas c = Canvas(839, 400);
 	
 	for (int i = 0; i < c.width; ++i) {
@@ -24,5 +25,6 @@ int main() {
 	for (int i = 0; i < ppm.size(); ++i) {
 		ppmFile << ppm[i] << endl;
 	}
+	*/
 	return 0;
 }

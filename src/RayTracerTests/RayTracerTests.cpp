@@ -406,7 +406,7 @@ namespace RayTracerTests {
 			C.rowThree(40, 58, 110, 102);
 			C.rowFour(16, 26, 46, 42);
 
-			Assert::IsTrue(A * B == C);
+			Assert::AreEqual(A * B, C);
 		}
 	};
 }
