@@ -147,3 +147,7 @@ Matrix transpose(Matrix M) {
 
 	return A;
 }
+
+float determinant(Matrix M) {
+	return M(0, 0) * M(1, 1) - M(0, 1) * M(1, 0);
+}

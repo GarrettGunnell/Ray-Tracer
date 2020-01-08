@@ -30,3 +30,4 @@ public:
 
 Matrix IdentityMatrix();
 Matrix transpose(Matrix M);
+float determinant(Matrix M);
