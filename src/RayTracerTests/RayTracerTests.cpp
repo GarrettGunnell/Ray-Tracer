@@ -483,5 +483,15 @@ namespace RayTracerTests {
 
 			Assert::IsTrue(subMatrix(A, 2, 1) == B);
 		}
+
+		TEST_METHOD(MatrixMinor) {
+			Matrix A = Matrix(3);
+			A.rowOne(3, 5, 0);
+			A.rowTwo(2, -1, -7);
+			A.rowThree(6, -1, 5);
+			Matrix B = subMatrix(A, 1, 0);
+			Assert::AreEqual(determinant(B), 25.0f);
+			Assert::AreEqual(minor(A, 1, 0), 25.0f);
+		}
 	};
 }
