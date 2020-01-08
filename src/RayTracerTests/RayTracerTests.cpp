@@ -573,5 +573,22 @@ namespace RayTracerTests {
 
 			Assert::IsTrue(B == C);
 		}
+
+		TEST_METHOD(MultiplyMatrixByInverse) {
+			Matrix A = Matrix(4);
+			A.rowOne(3, -9, 7, 3);
+			A.rowTwo(3, -8, 2, -9);
+			A.rowThree(-4, 4, 4, 1);
+			A.rowFour(-6, 5, -1, 1);
+
+			Matrix B = Matrix(4);
+			B.rowOne(8, 2, 2, 2);
+			B.rowTwo(3, -1, 7, 0);
+			B.rowThree(7, 0, 5, 4);
+			B.rowFour(6, -2, 0, 5);
+
+			Matrix C = A * B;
+			Assert::IsTrue(C * inverse(B) == A);
+		}
 	};
 }
