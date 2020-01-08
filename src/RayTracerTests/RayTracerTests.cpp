@@ -447,5 +447,13 @@ namespace RayTracerTests {
 
 			Assert::IsTrue(transpose(A) == TA);
 		}
+
+		TEST_METHOD(MatrixDeterminant) {
+			Matrix A = Matrix(2);
+			A.rowOne(1, 5);
+			A.rowTwo(-3, 2);
+
+			Assert::AreEqual(determinant(A), 17.0f);
+		}
 	};
 }
