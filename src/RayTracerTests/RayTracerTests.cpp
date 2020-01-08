@@ -455,5 +455,33 @@ namespace RayTracerTests {
 
 			Assert::AreEqual(determinant(A), 17.0f);
 		}
+
+		TEST_METHOD(SubmatrixOf3x3) {
+			Matrix A = Matrix(3);
+			A.rowOne(1, 5, 0);
+			A.rowTwo(-3, 2, 7);
+			A.rowThree(0, 6, -3);
+
+			Matrix B = Matrix(2);
+			B.rowOne(-3, 2);
+			B.rowTwo(0, 6);
+
+			Assert::IsTrue(subMatrix(A, 0, 2) == B);
+		}
+
+		TEST_METHOD(SubmatrixOf4x4) {
+			Matrix A = Matrix(4);
+			A.rowOne(-6, 1, 1, 6);
+			A.rowTwo(-8, 5, 8, 6);
+			A.rowThree(-1, 0, 8, 2);
+			A.rowFour(-7, 1, -1, 1);
+
+			Matrix B = Matrix(3);
+			B.rowOne(-6, 1, 6);
+			B.rowTwo(-8, 8, 6);
+			B.rowThree(-7, -1, 1);
+
+			Assert::IsTrue(subMatrix(A, 2, 1) == B);
+		}
 	};
 }
