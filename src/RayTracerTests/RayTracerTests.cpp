@@ -531,5 +531,23 @@ namespace RayTracerTests {
 			Assert::AreEqual(cofactor(A, 0, 3), 51.0f);
 			Assert::AreEqual(determinant(A), -4071.0f);
 		}
+
+		TEST_METHOD(MatrixInvertability) {
+			Matrix A = Matrix(4);
+			A.rowOne(6, 4, 4, 4);
+			A.rowTwo(5, 5, 7, 6);
+			A.rowThree(4, -9, 3, -7);
+			A.rowFour(9, 1, 7, -6);
+			
+			Assert::IsTrue(A.invertible());
+
+			Matrix B = Matrix(4);
+			A.rowOne(-4, 2, -2, -3);
+			A.rowTwo(9, 6, 2, 6);
+			A.rowThree(0, -5, 1, -5);
+			A.rowFour(0, 0, 0, 0);
+
+			Assert::IsFalse(B.invertible());
+		}
 	};
 }
