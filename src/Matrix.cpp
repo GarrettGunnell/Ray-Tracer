@@ -127,3 +127,13 @@ Tuple operator* (Matrix& A, Tuple& b) {
 
 	return Tuple(M(0, 0), M(1, 0), M(2, 0), M(3, 0));
 }
+
+Matrix IdentityMatrix() {
+	Matrix M = Matrix(4);
+	M.rowOne(1, 0, 0, 0);
+	M.rowTwo(0, 1, 0, 0);
+	M.rowThree(0, 0, 1, 0);
+	M.rowFour(0, 0, 0, 1);
+
+	return M;
+}

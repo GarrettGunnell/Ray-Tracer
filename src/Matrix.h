@@ -27,3 +27,5 @@ public:
 	friend Matrix operator* (Matrix& A, Matrix& B);
 	friend Tuple operator* (Matrix& A, Tuple& b);
 };
+
+Matrix IdentityMatrix();
