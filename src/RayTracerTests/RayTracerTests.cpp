@@ -493,5 +493,17 @@ namespace RayTracerTests {
 			Assert::AreEqual(determinant(B), 25.0f);
 			Assert::AreEqual(minor(A, 1, 0), 25.0f);
 		}
+
+		TEST_METHOD(ComputeCofactor) {
+			Matrix A = Matrix(3);
+			A.rowOne(3, 5, 0);
+			A.rowTwo(2, -1, -7);
+			A.rowThree(6, -1, 5);
+
+			Assert::AreEqual(minor(A, 0, 0), -12.0f);
+			Assert::AreEqual(cofactor(A, 0, 0), -12.0f);
+			Assert::AreEqual(minor(A, 1, 0), 25.0f);
+			Assert::AreEqual(cofactor(A, 1, 0), -25.0f);
+		}
 	};
 }
