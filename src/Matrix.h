@@ -29,3 +29,4 @@ public:
 };
 
 Matrix IdentityMatrix();
+Matrix transpose(Matrix M);

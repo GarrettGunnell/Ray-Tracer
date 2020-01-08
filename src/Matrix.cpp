@@ -137,3 +137,13 @@ Matrix IdentityMatrix() {
 
 	return M;
 }
+
+Matrix transpose(Matrix M) {
+	Matrix A = Matrix(4);
+	A.rowOne(M(0, 0), M(1, 0), M(2, 0), M(3, 0));
+	A.rowTwo(M(0, 1), M(1, 1), M(2, 1), M(3, 1));
+	A.rowThree(M(0, 2), M(1, 2), M(2, 2), M(3, 2));
+	A.rowFour(M(0, 3), M(1, 3), M(2, 3), M(3, 3));
+
+	return A;
+}

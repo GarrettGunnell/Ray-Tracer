@@ -445,7 +445,7 @@ namespace RayTracerTests {
 			TA.rowThree(3, 0, 5, 5);
 			TA.rowFour(0, 8, 3, 8);
 
-			Assert::IsTrue(Transpose(A) == TA);
+			Assert::IsTrue(transpose(A) == TA);
 		}
 	};
 }
