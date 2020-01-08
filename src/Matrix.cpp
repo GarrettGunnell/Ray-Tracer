@@ -160,7 +160,16 @@ Matrix transpose(Matrix M) {
 }
 
 float determinant(Matrix M) {
-	return M(0, 0) * M(1, 1) - M(0, 1) * M(1, 0);
+	if (M.size == 2) {
+		return M(0, 0) * M(1, 1) - M(0, 1) * M(1, 0);
+	}
+
+	float det = 0;
+	for (int col = 0; col < M.size; ++col) {
+		det += M(0, col) * cofactor(M, 0, col);
+	}
+
+	return det;
 }
 
 float minor(Matrix M, int row, int col) {
