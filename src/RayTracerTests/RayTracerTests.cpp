@@ -406,7 +406,7 @@ namespace RayTracerTests {
 			C.rowThree(40, 58, 110, 102);
 			C.rowFour(16, 26, 46, 42);
 
-			Assert::AreEqual(A * B, C);
+			Assert::IsTrue(A * B == C);
 		}
 
 		TEST_METHOD(MatrixAndTupleMultiplication) {
@@ -418,7 +418,7 @@ namespace RayTracerTests {
 
 			Tuple b = Tuple(1, 2, 3, 1);
 
-			Assert::AreEqual(A * b, b);
+			Assert::IsTrue(A * b == Tuple(18, 24, 33, 1));
 		}
 	};
 }

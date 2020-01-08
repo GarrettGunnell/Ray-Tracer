@@ -114,3 +114,16 @@ Matrix operator* (Matrix& A, Matrix& B) {
 
 	return C;
 }
+
+Tuple operator* (Matrix& A, Tuple& b) {
+	Matrix M = Matrix(4);
+
+	for (int row = 0; row < 4; ++row) {
+		M(row, 0) = A(row, 0) * b.x +
+					A(row, 1) * b.y +
+					A(row, 2) * b.z +
+					A(row, 3) * b.w;
+	}
+
+	return Tuple(M(0, 0), M(1, 0), M(2, 0), M(3, 0));
+}

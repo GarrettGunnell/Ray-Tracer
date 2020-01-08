@@ -20,9 +20,10 @@ public:
 	void rowThree(float a, float b, float c, float d);
 	void rowFour(float a, float b, float c, float d);
 
-	float& operator()(int index1, int index2);
+	float& operator()(const int index1, const int index2);
 
 	friend bool operator== (Matrix& A, Matrix& B);
 	friend bool operator!= (Matrix& A, Matrix& B);
 	friend Matrix operator* (Matrix& A, Matrix& B);
+	friend Tuple operator* (Matrix& A, Tuple& b);
 };
