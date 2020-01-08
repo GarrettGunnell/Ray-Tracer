@@ -386,5 +386,27 @@ namespace RayTracerTests {
 
 			Assert::IsTrue(A != B);
 		}
+
+		TEST_METHOD(MatrixMultiplication) {
+			Matrix A = Matrix(4);
+			A.rowOne(1, 2, 3, 4);
+			A.rowTwo(5, 6, 7, 8);
+			A.rowThree(9, 8, 7, 6);
+			A.rowFour(5, 4, 3, 2);
+
+			Matrix B = Matrix(4);
+			B.rowOne(-2, 1, 2, 3);
+			B.rowTwo(3, 2, 1, -1);
+			B.rowThree(4, 3, 6, 5);
+			B.rowFour(1, 2, 7, 8);
+
+			Matrix C = Matrix(4);
+			C.rowOne(20, 22, 50, 48);
+			C.rowTwo(44, 54, 114, 108);
+			C.rowThree(40, 58, 110, 102);
+			C.rowFour(16, 26, 46, 42);
+
+			Assert::IsTrue(A * B == C);
+		}
 	};
 }
