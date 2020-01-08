@@ -34,4 +34,5 @@ Matrix IdentityMatrix();
 Matrix transpose(Matrix M);
 float determinant(Matrix M);
 float minor(Matrix M, int row, int col);
+float cofactor(Matrix M, int row, int col);
 Matrix subMatrix(Matrix M, int row, int col);

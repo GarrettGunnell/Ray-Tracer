@@ -167,6 +167,11 @@ float minor(Matrix M, int row, int col) {
 	return determinant(subMatrix(M, row, col));
 }
 
+float cofactor(Matrix M, int row, int col) {
+	float x = (row + col) % 2 == 0 ? minor(M, row, col) : -minor(M, row, col);
+	return x;
+}
+
 Matrix subMatrix(Matrix M, int row, int col) {
 	Matrix A = Matrix(M.size - 1);
 	int curRow = 0;
