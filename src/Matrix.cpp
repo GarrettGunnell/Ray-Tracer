@@ -163,6 +163,10 @@ float determinant(Matrix M) {
 	return M(0, 0) * M(1, 1) - M(0, 1) * M(1, 0);
 }
 
+float minor(Matrix M, int row, int col) {
+	return determinant(subMatrix(M, row, col));
+}
+
 Matrix subMatrix(Matrix M, int row, int col) {
 	Matrix A = Matrix(M.size - 1);
 	int curRow = 0;
