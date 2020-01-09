@@ -37,3 +37,5 @@ float minor(Matrix M, int row, int col);
 float cofactor(Matrix M, int row, int col);
 Matrix subMatrix(Matrix M, int row, int col);
 Matrix inverse(Matrix M);
+
+Matrix Translation(float x, float y, float z);

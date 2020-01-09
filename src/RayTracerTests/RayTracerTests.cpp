@@ -595,7 +595,7 @@ namespace RayTracerTests {
 	TEST_CLASS(MatrixTransformations) {
 	public:
 
-		TEST_METHOD(Translation) {
+		TEST_METHOD(Translations) {
 			Matrix transform = Translation(5, -3, 2);
 			Tuple p = Point(-3, 4, 5);
 

@@ -217,3 +217,12 @@ Matrix inverse(Matrix M) {
 
 	return A;
 }
+
+Matrix Translation(float x, float y, float z) {
+	Matrix M = IdentityMatrix();
+	M(0, 3) = x;
+	M(1, 3) = y;
+	M(2, 3) = z;
+
+	return M;
+}
