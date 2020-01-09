@@ -205,12 +205,13 @@ Matrix inverse(Matrix M) {
 	}
 
 	Matrix A = Matrix(M.size);
+	float det = determinant(M);
 
 	for (int row = 0; row < M.size; ++row) {
 		for (int col = 0; col < M.size; ++col) {
 			float c = cofactor(M, row, col);
 
-			A(col, row) = c / determinant(M);
+			A(col, row) = c / det;
 		}
 	}
 
