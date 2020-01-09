@@ -595,6 +595,27 @@ namespace RayTracerTests {
 	TEST_CLASS(MatrixTransformations) {
 	public:
 
+		TEST_METHOD(Translation) {
+			Matrix transform = Translation(5, -3, 2);
+			Tuple p = Point(-3, 4, 5);
 
+			Assert::IsTrue(transform * p == Point(2, 1, 7));
+		}
+
+		TEST_METHOD(InverseTranslation) {
+			Matrix transform = Translation(5, -3, 2);
+			Tuple p = Point(-3, 4, 5);
+			Matrix inv = inverse(transform);
+
+			Assert::IsTrue(inv * p == Point(-8, 7, 3));
+		}
+
+		TEST_METHOD(TranslationsAndVectors) {
+			//A vector should not be affected by a translation
+			Matrix transform = Translation(5, -3, 2);
+			Tuple v = Vector(-3, 4, 5);
+
+			Assert::IsTrue(transform * v == v);
+		}
 	};
 }
