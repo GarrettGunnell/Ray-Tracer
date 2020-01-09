@@ -668,7 +668,7 @@ namespace RayTracerTests {
 		}
 
 		TEST_METHOD(YRotation) {
-			Tuple p = Point(0, 1, 0);
+			Tuple p = Point(0, 0, 1);
 			Matrix halfQuarter = RotationY(M_PI / 4);
 			Matrix fullQuarter = RotationY(M_PI / 2);
 

@@ -235,3 +235,33 @@ Matrix Scaling(float x, float y, float z) {
 
 	return M;
 }
+
+Matrix RotationX(float radian) {
+	Matrix M = IdentityMatrix();
+	M(1, 1) = cos(radian);
+	M(1, 2) = -sin(radian);
+	M(2, 1) = sin(radian);
+	M(2, 2) = cos(radian);
+
+	return M;
+}
+
+Matrix RotationY(float radian) {
+	Matrix M = IdentityMatrix();
+	M(0, 0) = cos(radian);
+	M(0, 2) = sin(radian);
+	M(2, 0) = -sin(radian);
+	M(2, 2) = cos(radian);
+
+	return M;
+}
+
+Matrix RotationZ(float radian) {
+	Matrix M = IdentityMatrix();
+	M(0, 0) = cos(radian);
+	M(0, 1) = -sin(radian);
+	M(1, 0) = sin(radian);
+	M(1, 1) = cos(radian);
+
+	return M;
+}

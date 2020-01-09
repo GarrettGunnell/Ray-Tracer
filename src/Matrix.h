@@ -40,3 +40,6 @@ Matrix inverse(Matrix M);
 
 Matrix Translation(float x, float y, float z);
 Matrix Scaling(float x, float y, float z);
+Matrix RotationX(float radian);
+Matrix RotationY(float radian);
+Matrix RotationZ(float radian);
