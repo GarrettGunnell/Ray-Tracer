@@ -19,13 +19,13 @@ float Tuple::magnitude() {
 	return sqrt(this->x * this->x + this->y * this->y + this->z * this->z + this->w * this->w);
 }
 
-Tuple* Point(float x, float y, float z) {
-	Tuple* point = new Tuple(x, y, z, 1.0f);
+Tuple Point(float x, float y, float z) {
+	Tuple point = Tuple(x, y, z, 1.0f);
 	return point;
 }
 
-Tuple* Vector(float x, float y, float z) {
-	Tuple* vector = new Tuple(x, y, z, 0.0f);
+Tuple Vector(float x, float y, float z) {
+	Tuple vector = Tuple(x, y, z, 0.0f);
 	return vector;
 }
 
@@ -33,26 +33,26 @@ bool equal(float a, float b) {
 	return abs(a - b) < 0.00001;
 }
 
-Tuple* normalize(Tuple* p) {
-	Tuple* x = new Tuple(p->x / p->magnitude(),
-		p->y / p->magnitude(),
-		p->z / p->magnitude(),
-		p->w / p->magnitude());
+Tuple normalize(Tuple p) {
+	Tuple x = Tuple(p.x / p.magnitude(),
+		p.y / p.magnitude(),
+		p.z / p.magnitude(),
+		p.w / p.magnitude());
 
 	return x;
 }
 
-float dot(Tuple* p1, Tuple* p2) {
-	return (p1->x * p2->x +
-		p1->y * p2->y +
-		p1->z * p2->z +
-		p1->w * p2->w);
+float dot(Tuple p1, Tuple p2) {
+	return (p1.x * p2.x +
+		p1.y * p2.y +
+		p1.z * p2.z +
+		p1.w * p2.w);
 }
 
-Tuple* cross(Tuple* v1, Tuple* v2) {
-	return Vector(v1->y * v2->z - v1->z * v2->y,
-		v1->z * v2->x - v1->x * v2->z,
-		v1->x * v2->y - v1->y * v2->x);
+Tuple cross(Tuple v1, Tuple v2) {
+	return Vector(v1.y * v2.z - v1.z * v2.y,
+		v1.z * v2.x - v1.x * v2.z,
+		v1.x * v2.y - v1.y * v2.x);
 }
 
 bool operator== (const Tuple& p1, const Tuple& p2) {

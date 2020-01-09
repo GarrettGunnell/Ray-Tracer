@@ -45,21 +45,21 @@ namespace RayTracerTests {
 		}
 
 		TEST_METHOD(APointIsAPoint) {
-			Tuple* a = Point(4, -4, 3);
+			Tuple a = Point(4, -4, 3);
 			Tuple b = Tuple(4, -4, 3, 1);
-			Assert::AreEqual(a->x, b.x);
-			Assert::AreEqual(a->y, b.y);
-			Assert::AreEqual(a->z, b.z);
-			Assert::AreEqual(a->w, b.w);
+			Assert::AreEqual(a.x, b.x);
+			Assert::AreEqual(a.y, b.y);
+			Assert::AreEqual(a.z, b.z);
+			Assert::AreEqual(a.w, b.w);
 		}
 
 		TEST_METHOD(AVectorIsAVector) {
-			Tuple* a = Vector(4, -4, 3);
+			Tuple a = Vector(4, -4, 3);
 			Tuple b = Tuple(4, -4, 3, 0);
-			Assert::AreEqual(a->x, b.x);
-			Assert::AreEqual(a->y, b.y);
-			Assert::AreEqual(a->z, b.z);
-			Assert::AreEqual(a->w, b.w);
+			Assert::AreEqual(a.x, b.x);
+			Assert::AreEqual(a.y, b.y);
+			Assert::AreEqual(a.z, b.z);
+			Assert::AreEqual(a.w, b.w);
 		}
 
 		TEST_METHOD(TupleEquality) {
@@ -83,33 +83,33 @@ namespace RayTracerTests {
 
 		TEST_METHOD(PointSubtraction) {
 			//A Point minus a Point is a Vector
-			Tuple* a = Point(3, 2, 1);
-			Tuple* b = Point(5, 6, 7);
-			Tuple* c = Vector(-2, -4, -6);
-			Assert::IsTrue((*a - *b) == *c);
+			Tuple a = Point(3, 2, 1);
+			Tuple b = Point(5, 6, 7);
+			Tuple c = Vector(-2, -4, -6);
+			Assert::IsTrue((a - b) == c);
 		}
 
 		TEST_METHOD(PointVectorSubtraction) {
 			//A Point minus a Vector is a Point
-			Tuple* a = Point(3, 2, 1);
-			Tuple* b = Vector(5, 6, 7);
-			Tuple* c = Point(-2, -4, -6);
-			Assert::IsTrue((*a - *b) == *c);
+			Tuple a = Point(3, 2, 1);
+			Tuple b = Vector(5, 6, 7);
+			Tuple c = Point(-2, -4, -6);
+			Assert::IsTrue((a - b) == c);
 		}
 
 		TEST_METHOD(VectorSubtraction) {
 			//A Vector minus a Vector is a Vector
-			Tuple* a = Vector(3, 2, 1);
-			Tuple* b = Vector(5, 6, 7);
-			Tuple* c = Vector(-2, -4, -6);
-			Assert::IsTrue((*a - *b) == *c);
+			Tuple a = Vector(3, 2, 1);
+			Tuple b = Vector(5, 6, 7);
+			Tuple c = Vector(-2, -4, -6);
+			Assert::IsTrue((a - b) == c);
 		}
 
 		TEST_METHOD(SubtractingFromZeroVector) {
-			Tuple* zero = Vector(0, 0, 0);
-			Tuple* v = Vector(1, -2, 3);
-			Tuple* vNegation = Vector(-1, 2, -3);
-			Assert::IsTrue((*zero - *v) == *vNegation);
+			Tuple zero = Vector(0, 0, 0);
+			Tuple v = Vector(1, -2, 3);
+			Tuple vNegation = Vector(-1, 2, -3);
+			Assert::IsTrue((zero - v) == vNegation);
 		}
 
 		TEST_METHOD(TupleNegation) {
@@ -138,60 +138,60 @@ namespace RayTracerTests {
 		}
 
 		TEST_METHOD(Magnitude) {
-			Tuple* v1 = Vector(1, 0, 0);
-			float m = v1->magnitude();
+			Tuple v1 = Vector(1, 0, 0);
+			float m = v1.magnitude();
 			Assert::AreEqual(m, 1.0f);
 
-			Tuple* v2 = Vector(0, 1, 0);
-			m = v2->magnitude();
+			Tuple v2 = Vector(0, 1, 0);
+			m = v2.magnitude();
 			Assert::AreEqual(m, 1.0f);
 
-			Tuple* v3 = Vector(0, 0, 1);
-			m = v3->magnitude();
+			Tuple v3 = Vector(0, 0, 1);
+			m = v3.magnitude();
 			Assert::AreEqual(m, 1.0f);
 
-			Tuple* v4 = Vector(1, 2, 3);
-			m = v4->magnitude();
+			Tuple v4 = Vector(1, 2, 3);
+			m = v4.magnitude();
 			Assert::AreEqual(m, float(sqrt(14)));
 
-			Tuple* v5 = Vector(-1, -2, -3);
-			m = v5->magnitude();
+			Tuple v5 = Vector(-1, -2, -3);
+			m = v5.magnitude();
 			Assert::AreEqual(m, float(sqrt(14)));
 		}
 
 		TEST_METHOD(NormalizingAVector) {
-			Tuple* v = Vector(4, 0, 0);
-			Tuple* nv = normalize(v);
-			Tuple* uv = Vector(1, 0, 0);
-			Assert::IsTrue(*nv == *uv);
+			Tuple v = Vector(4, 0, 0);
+			Tuple nv = normalize(v);
+			Tuple uv = Vector(1, 0, 0);
+			Assert::IsTrue(nv == uv);
 
 			v = Vector(1, 2, 3);
 			nv = normalize(v);
 			uv = Vector(1 / float(sqrt(14)), 2 / float(sqrt(14)), 3 / float(sqrt(14)));
-			Assert::IsTrue(*nv == *uv);
+			Assert::IsTrue(nv == uv);
 		}
 
 		TEST_METHOD(MagnitudeOfNormalizedVector) {
-			Tuple* v = Vector(1, 2, 3);
-			Tuple* nv = normalize(v);
-			Assert::IsTrue(equal(nv->magnitude(), 1.0f));
+			Tuple v = Vector(1, 2, 3);
+			Tuple nv = normalize(v);
+			Assert::IsTrue(equal(nv.magnitude(), 1.0f));
 		}
 
 		TEST_METHOD(DotProductOfTwoTuples) {
-			Tuple* a = Vector(1, 2, 3);
-			Tuple* b = Vector(2, 3, 4);
+			Tuple a = Vector(1, 2, 3);
+			Tuple b = Vector(2, 3, 4);
 			Assert::AreEqual(dot(a, b), 20.0f);
 		}
 
 		TEST_METHOD(CrossProductOfTwoVectors) {
-			Tuple* a = Vector(1, 2, 3);
-			Tuple* b = Vector(2, 3, 4);
-			Tuple* crossab = Vector(-1, 2, -1);
-			Tuple* crossba = Vector(1, -2, 1);
-			Tuple* crossabf = cross(a, b);
-			Tuple* crossbaf = cross(b, a);
-			Assert::IsTrue(*crossabf == *crossab);
-			Assert::IsTrue(*crossbaf == *crossba);
+			Tuple a = Vector(1, 2, 3);
+			Tuple b = Vector(2, 3, 4);
+			Tuple crossab = Vector(-1, 2, -1);
+			Tuple crossba = Vector(1, -2, 1);
+			Tuple crossabf = cross(a, b);
+			Tuple crossbaf = cross(b, a);
+			Assert::IsTrue(crossabf == crossab);
+			Assert::IsTrue(crossbaf == crossba);
 		}
 	};
 
@@ -590,5 +590,11 @@ namespace RayTracerTests {
 			Matrix C = A * B;
 			Assert::IsTrue(C * inverse(B) == A);
 		}
+	};
+
+	TEST_CLASS(MatrixTransformations) {
+	public:
+
+
 	};
 }
