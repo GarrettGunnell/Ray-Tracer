@@ -639,5 +639,12 @@ namespace RayTracerTests {
 
 			Assert::IsTrue(inv * v == Vector(-2, 2, 2));
 		}
+
+		TEST_METHOD(Reflection) {
+			Matrix transform = Scaling(-1, 1, 1);
+			Tuple p = Point(2, 3, 4);
+
+			Assert::IsTrue(transform * p == Point(-2, 3, 4));
+		}
 	};
 }
