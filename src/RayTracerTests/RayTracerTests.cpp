@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include <cstdlib>
+#define _USE_MATH_DEFINES
+#include <math.h>
 #include "../Tuple.cpp"
 #include "../Color.cpp"
 #include "../Canvas.cpp"
@@ -645,6 +647,42 @@ namespace RayTracerTests {
 			Tuple p = Point(2, 3, 4);
 
 			Assert::IsTrue(transform * p == Point(-2, 3, 4));
+		}
+
+		TEST_METHOD(XRotation) {
+			Tuple p = Point(0, 1, 0);
+			Matrix halfQuarter = RotationX(M_PI / 4);
+			Matrix fullQuarter = RotationX(M_PI / 2);
+
+			Assert::IsTrue(halfQuarter * p == Point(0, sqrt(2) / 2, sqrt(2) / 2));
+			Assert::IsTrue(fullQuarter * p == Point(0, 0, 1));
+		}
+
+		TEST_METHOD(InverseXRotation) {
+			Tuple p = Point(0, 1, 0);
+			Matrix halfQuarter = inverse(RotationX(M_PI / 4));
+			Matrix fullQuarter = inverse(RotationX(M_PI / 2));
+
+			Assert::IsTrue(halfQuarter * p == Point(0, sqrt(2) / 2, -sqrt(2) / 2));
+			Assert::IsTrue(fullQuarter * p == Point(0, 0, -1));
+		}
+
+		TEST_METHOD(YRotation) {
+			Tuple p = Point(0, 1, 0);
+			Matrix halfQuarter = RotationY(M_PI / 4);
+			Matrix fullQuarter = RotationY(M_PI / 2);
+
+			Assert::IsTrue(halfQuarter * p == Point(sqrt(2) / 2, 0, sqrt(2) / 2));
+			Assert::IsTrue(fullQuarter * p == Point(1, 0, 0));
+		}
+
+		TEST_METHOD(ZRotation) {
+			Tuple p = Point(0, 1, 0);
+			Matrix halfQuarter = RotationZ(M_PI / 4);
+			Matrix fullQuarter = RotationZ(M_PI / 2);
+
+			Assert::IsTrue(halfQuarter * p == Point(-sqrt(2) / 2, sqrt(2) / 2, 0));
+			Assert::IsTrue(fullQuarter * p == Point(-1, 0, 0));
 		}
 	};
 }
