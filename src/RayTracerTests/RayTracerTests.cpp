@@ -617,5 +617,27 @@ namespace RayTracerTests {
 
 			Assert::IsTrue(transform * v == v);
 		}
+
+		TEST_METHOD(ScalingTransform) {
+			Matrix transform = Scaling(2, 3, 4);
+			Tuple p = Point(-4, 6, 8);
+
+			Assert::IsTrue(transform * p == Point(-8, 18, 32));
+		}
+
+		TEST_METHOD(ScalingAndVectors) {
+			Matrix transform = Scaling(2, 3, 4);
+			Tuple v = Vector(-4, 6, 8);
+
+			Assert::IsTrue(transform * v == Vector(-8, 18, 32));
+		}
+
+		TEST_METHOD(InverseScaling) {
+			Matrix transform = Scaling(2, 3, 4);
+			Matrix inv = inverse(transform);
+			Tuple v = Vector(-4, 6, 8);
+
+			Assert::IsTrue(inv * v == Vector(-2, 2, 2));
+		}
 	};
 }
