@@ -39,3 +39,4 @@ Matrix subMatrix(Matrix M, int row, int col);
 Matrix inverse(Matrix M);
 
 Matrix Translation(float x, float y, float z);
+Matrix Scaling(float x, float y, float z);

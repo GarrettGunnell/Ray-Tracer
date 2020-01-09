@@ -226,3 +226,12 @@ Matrix Translation(float x, float y, float z) {
 
 	return M;
 }
+
+Matrix Scaling(float x, float y, float z) {
+	Matrix M = IdentityMatrix();
+	M(0, 0) = x;
+	M(1, 1) = y;
+	M(2, 2) = z;
+
+	return M;
+}
