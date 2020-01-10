@@ -7,4 +7,5 @@ public:
 	Tuple direction;
 
 	Ray(Tuple origin, Tuple direction);
+	Tuple positionAt(float t);
 };
