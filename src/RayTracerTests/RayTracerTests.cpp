@@ -748,5 +748,52 @@ namespace RayTracerTests {
 			Assert::IsTrue(r.positionAt(-1) == Point(1, 3, 4));
 			Assert::IsTrue(r.positionAt(2.5) == Point(4.5, 3, 4));
 		}
+
+		TEST_METHOD(RayIntersectsSphereAtTwoPoints) {
+			Ray r = Ray(Point(0, 0, -5), Vector(0, 0, 1));
+			Sphere s = Sphere();
+			vector<float> xs = intersect(s, r);
+
+			Assert::AreEqual(int(xs.size()), 2);
+			Assert::AreEqual(xs[0], 4.0f);
+			Assert::AreEqual(xs[1], 6.0f);
+		}
+
+		TEST_METHOD(RayIsTangentToSphere) {
+			Ray r = Ray(Point(0, 1, -5), Vector(0, 0, 1));
+			Sphere s = Sphere();
+			vector<float> xs = intersect(s, r);
+
+			Assert::AreEqual(int(xs.size()), 2);
+			Assert::AreEqual(xs[0], xs[1], 5.0f);
+		}
+
+		TEST_METHOD(RayMissesASphere) {
+			Ray r = Ray(Point(0, 2, -5), Vector(0, 0, 1));
+			Sphere s = Sphere();
+			vector<float> xs = intersect(s, r);
+
+			Assert::AreEqual(int(xs.size()), 0);
+		}
+
+		TEST_METHOD(RayOriginatesInsideSphere) {
+			Ray r = Ray(Point(0, 0, 0), Vector(0, 0, 1));
+			Sphere s = Sphere();
+			vector<float> xs = intersect(s, r);
+
+			Assert::AreEqual(int(xs.size()), 2);
+			Assert::AreEqual(xs[0], -1.0f);
+			Assert::AreEqual(xs[1], 1.0f);
+		}
+
+		TEST_METHOD(ASphereIsBehindARay) {
+			Ray r = Ray(Point(0, 0, 5), Vector(0, 0, 1));
+			Sphere s = Sphere();
+			vector<float> xs = intersect(s, r);
+
+			Assert::AreEqual(int(xs.size()), 2);
+			Assert::AreEqual(xs[0], -6.0f);
+			Assert::AreEqual(xs[1], -4.0f);
+		}
 	};
 }
