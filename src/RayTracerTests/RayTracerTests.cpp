@@ -726,4 +726,17 @@ namespace RayTracerTests {
 			Assert::IsTrue(T * p == p4);
 		}
 	};
+
+	TEST_CLASS(Rays) {
+	public:
+
+		TEST_METHOD(RayExists) {
+			Tuple origin = Point(1, 2, 3);
+			Tuple direction = Vector(4, 5, 6);
+			Ray r = Ray(origin, direction);
+
+			Assert::AreEqual(r.origin, origin);
+			Assert::AreEqual(r.direction, direction);
+		}
+	};
 }
