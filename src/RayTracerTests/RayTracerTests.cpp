@@ -739,5 +739,14 @@ namespace RayTracerTests {
 			Assert::IsTrue(r.origin == origin);
 			Assert::IsTrue(r.direction == direction);
 		}
+
+		TEST_METHOD(PositionOverTime) {
+			Ray r = Ray(Point(2, 3, 4), Vector(1, 0, 0));
+
+			Assert::IsTrue(r.positionAt(0) == Point(2, 3, 4));
+			Assert::IsTrue(r.positionAt(1) == Point(3, 3, 4));
+			Assert::IsTrue(r.positionAt(-1) == Point(1, 3, 4));
+			Assert::IsTrue(r.positionAt(2.5) == Point(4.5, 3, 4));
+		}
 	};
 }
