@@ -684,5 +684,27 @@ namespace RayTracerTests {
 			Assert::IsTrue(halfQuarter * p == Point(-sqrt(2) / 2, sqrt(2) / 2, 0));
 			Assert::IsTrue(fullQuarter * p == Point(-1, 0, 0));
 		}
+
+		TEST_METHOD(ShearingTransform) {
+			Tuple p = Point(2, 3, 4);
+			Matrix transform = Shearing(1, 0, 0, 0, 0, 0);
+
+			Assert::IsTrue(transform * p == Point(5, 3, 4));
+
+			transform = Shearing(0, 1, 0, 0, 0, 0);
+			Assert::IsTrue(transform * p == Point(6, 3, 4));
+
+			transform = Shearing(0, 0, 1, 0, 0, 0);
+			Assert::IsTrue(transform * p == Point(2, 5, 4));
+
+			transform = Shearing(0, 0, 0, 1, 0, 0);
+			Assert::IsTrue(transform * p == Point(2, 7, 4));
+
+			transform = Shearing(0, 0, 0, 0, 1, 0);
+			Assert::IsTrue(transform * p == Point(2, 3, 6));
+
+			transform = Shearing(0, 0, 0, 0, 0, 1);
+			Assert::IsTrue(transform * p == Point(2, 3, 7));
+		}
 	};
 }
