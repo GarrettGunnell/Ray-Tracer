@@ -706,5 +706,24 @@ namespace RayTracerTests {
 			transform = Shearing(0, 0, 0, 0, 0, 1);
 			Assert::IsTrue(transform * p == Point(2, 3, 7));
 		}
+
+		TEST_METHOD(ChainingTransformations) {
+			Tuple p = Point(1, 0, 1);
+			Matrix A = RotationX(M_PI / 2);
+			Matrix B = Scaling(5, 5, 5);
+			Matrix C = Translation(10, 5, 7);
+			
+			Tuple p2 = A * p;
+			Assert::IsTrue(p2 == Point(1, -1, 0));
+
+			Tuple p3 = B * p2;
+			Assert::IsTrue(p3 == Point(5, -5, 0));
+
+			Tuple p4 = C * p3;
+			Assert::IsTrue(p4 == Point(15, 0, 7));
+
+			Matrix T = C * B * A;
+			Assert::IsTrue(T * p == p4);
+		}
 	};
 }
