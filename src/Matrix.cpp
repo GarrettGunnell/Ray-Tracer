@@ -265,3 +265,15 @@ Matrix RotationZ(float radian) {
 
 	return M;
 }
+
+Matrix Shearing(float xy, float xz, float yx, float yz, float zx, float zy) {
+	Matrix M = IdentityMatrix();
+	M(0, 1) = xy;
+	M(0, 2) = xz;
+	M(1, 0) = yx;
+	M(1, 2) = yz;
+	M(2, 0) = zx;
+	M(2, 1) = zy;
+
+	return M;
+}

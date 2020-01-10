@@ -43,3 +43,4 @@ Matrix Scaling(float x, float y, float z);
 Matrix RotationX(float radian);
 Matrix RotationY(float radian);
 Matrix RotationZ(float radian);
+Matrix Shearing(float xy, float xz, float yx, float yz, float zx, float zy);
