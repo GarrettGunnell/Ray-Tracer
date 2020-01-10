@@ -8,6 +8,7 @@ public:
 	float z;
 	float w;
 
+	Tuple();
 	Tuple(float x, float y, float z, float w);
 	bool isPoint();
 	bool isVector();

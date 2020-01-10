@@ -7,6 +7,7 @@
 #include "../Color.cpp"
 #include "../Canvas.cpp"
 #include "../Matrix.cpp"
+#include "../Ray.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
@@ -735,8 +736,8 @@ namespace RayTracerTests {
 			Tuple direction = Vector(4, 5, 6);
 			Ray r = Ray(origin, direction);
 
-			Assert::AreEqual(r.origin, origin);
-			Assert::AreEqual(r.direction, direction);
+			Assert::IsTrue(r.origin == origin);
+			Assert::IsTrue(r.direction == direction);
 		}
 	};
 }

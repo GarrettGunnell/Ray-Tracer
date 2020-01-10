@@ -1,5 +1,7 @@
 #include "Tuple.h"
 
+Tuple::Tuple() {}
+
 Tuple::Tuple(float x, float y, float z, float w) {
 	this->x = x;
 	this->y = y;
