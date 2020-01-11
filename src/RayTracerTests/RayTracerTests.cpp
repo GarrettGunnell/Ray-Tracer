@@ -8,6 +8,8 @@
 #include "../Canvas.cpp"
 #include "../Matrix.cpp"
 #include "../Ray.cpp"
+#include "../Sphere.cpp"
+#include "../Intersect.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
@@ -298,7 +300,7 @@ namespace RayTracerTests {
 			Canvas c = Canvas(10, 2);
 			for (int i = 0; i < c.height; ++i) {
 				for (int j = 0; j < c.width; ++j) {
-					c.writePixel(j, i, Color(1, 0.8, 0.6));
+					c.writePixel(j, i, Color(1, 0.8f, 0.6f));
 				}
 			}
 
@@ -569,10 +571,10 @@ namespace RayTracerTests {
 			Assert::AreEqual(B(2, 3), 105.0f / 532.0f);
 
 			Matrix C = Matrix(4);
-			C.rowOne(0.21805, 0.45113, 0.24060, -0.04511);
-			C.rowTwo(-0.80827, -1.45677, -0.44361, 0.52068);
-			C.rowThree(-0.07895, -0.22368, -0.05263, 0.19737);
-			C.rowFour(-0.52256, -0.81391, -0.30075, 0.30639);
+			C.rowOne(0.21805f, 0.45113f, 0.24060f, -0.04511f);
+			C.rowTwo(-0.80827f, -1.45677f, -0.44361f, 0.52068f);
+			C.rowThree(-0.07895f, -0.22368f, -0.05263f, 0.19737f);
+			C.rowFour(-0.52256f, -0.81391f, -0.30075f, 0.30639f);
 
 			Assert::IsTrue(B == C);
 		}
@@ -652,37 +654,37 @@ namespace RayTracerTests {
 
 		TEST_METHOD(XRotation) {
 			Tuple p = Point(0, 1, 0);
-			Matrix halfQuarter = RotationX(M_PI / 4);
-			Matrix fullQuarter = RotationX(M_PI / 2);
+			Matrix halfQuarter = RotationX(float(M_PI / 4));
+			Matrix fullQuarter = RotationX(float(M_PI / 2));
 
-			Assert::IsTrue(halfQuarter * p == Point(0, sqrt(2) / 2, sqrt(2) / 2));
+			Assert::IsTrue(halfQuarter * p == Point(0, float(sqrt(2) / 2), float(sqrt(2) / 2)));
 			Assert::IsTrue(fullQuarter * p == Point(0, 0, 1));
 		}
 
 		TEST_METHOD(InverseXRotation) {
 			Tuple p = Point(0, 1, 0);
-			Matrix halfQuarter = inverse(RotationX(M_PI / 4));
-			Matrix fullQuarter = inverse(RotationX(M_PI / 2));
+			Matrix halfQuarter = inverse(RotationX(float(M_PI / 4)));
+			Matrix fullQuarter = inverse(RotationX(float(M_PI / 2)));
 
-			Assert::IsTrue(halfQuarter * p == Point(0, sqrt(2) / 2, -sqrt(2) / 2));
+			Assert::IsTrue(halfQuarter * p == Point(0, float(sqrt(2) / 2), float(-sqrt(2) / 2)));
 			Assert::IsTrue(fullQuarter * p == Point(0, 0, -1));
 		}
 
 		TEST_METHOD(YRotation) {
 			Tuple p = Point(0, 0, 1);
-			Matrix halfQuarter = RotationY(M_PI / 4);
-			Matrix fullQuarter = RotationY(M_PI / 2);
+			Matrix halfQuarter = RotationY(float(M_PI / 4));
+			Matrix fullQuarter = RotationY(float(M_PI / 2));
 
-			Assert::IsTrue(halfQuarter * p == Point(sqrt(2) / 2, 0, sqrt(2) / 2));
+			Assert::IsTrue(halfQuarter * p == Point(float(sqrt(2) / 2), 0, float(sqrt(2) / 2)));
 			Assert::IsTrue(fullQuarter * p == Point(1, 0, 0));
 		}
 
 		TEST_METHOD(ZRotation) {
 			Tuple p = Point(0, 1, 0);
-			Matrix halfQuarter = RotationZ(M_PI / 4);
-			Matrix fullQuarter = RotationZ(M_PI / 2);
+			Matrix halfQuarter = RotationZ(float(M_PI / 4));
+			Matrix fullQuarter = RotationZ(float(M_PI / 2));
 
-			Assert::IsTrue(halfQuarter * p == Point(-sqrt(2) / 2, sqrt(2) / 2, 0));
+			Assert::IsTrue(halfQuarter * p == Point(float(-sqrt(2) / 2), float(sqrt(2) / 2), 0));
 			Assert::IsTrue(fullQuarter * p == Point(-1, 0, 0));
 		}
 
@@ -710,7 +712,7 @@ namespace RayTracerTests {
 
 		TEST_METHOD(ChainingTransformations) {
 			Tuple p = Point(1, 0, 1);
-			Matrix A = RotationX(M_PI / 2);
+			Matrix A = RotationX(float(M_PI / 2));
 			Matrix B = Scaling(5, 5, 5);
 			Matrix C = Translation(10, 5, 7);
 			
@@ -746,7 +748,7 @@ namespace RayTracerTests {
 			Assert::IsTrue(r.positionAt(0) == Point(2, 3, 4));
 			Assert::IsTrue(r.positionAt(1) == Point(3, 3, 4));
 			Assert::IsTrue(r.positionAt(-1) == Point(1, 3, 4));
-			Assert::IsTrue(r.positionAt(2.5) == Point(4.5, 3, 4));
+			Assert::IsTrue(r.positionAt(2.5) == Point(4.5f, 3, 4));
 		}
 
 		TEST_METHOD(RayIntersectsSphereAtTwoPoints) {

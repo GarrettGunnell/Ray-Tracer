@@ -7,5 +7,3 @@
 using namespace std;
 
 vector<float> intersect(Sphere s, Ray r);
-
-float discriminant(Ray r);
