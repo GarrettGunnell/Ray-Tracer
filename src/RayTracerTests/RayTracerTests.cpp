@@ -750,6 +750,10 @@ namespace RayTracerTests {
 			Assert::IsTrue(r.positionAt(-1) == Point(1, 3, 4));
 			Assert::IsTrue(r.positionAt(2.5) == Point(4.5f, 3, 4));
 		}
+	};
+
+	TEST_CLASS(RaySphereIntersections) {
+	public:
 
 		TEST_METHOD(RayIntersectsSphereAtTwoPoints) {
 			Ray r = Ray(Point(0, 0, -5), Vector(0, 0, 1));
