@@ -803,6 +803,25 @@ namespace RayTracerTests {
 		}
 	};
 
+	TEST_CLASS(Spheres) {
+	public:
+
+		TEST_METHOD(SphereDefaultTransformation) {
+			Sphere s = Sphere();
+			Matrix identity = IdentityMatrix();
+
+			Assert::IsTrue(s.transform == identity);
+		}
+
+		TEST_METHOD(ChangingSphereTransform) {
+			Sphere s = Sphere();
+			Matrix transform = Translation(2, 3, 4);
+			s.transform = transform;
+
+			Assert::IsTrue(s.transform == transform);
+		}
+	};
+
 	TEST_CLASS(RaySphereIntersections) {
 	public:
 		TEST_METHOD(RayIntersectsSphereAtTwoPoints) {
