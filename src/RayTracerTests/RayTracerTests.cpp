@@ -752,9 +752,40 @@ namespace RayTracerTests {
 		}
 	};
 
-	TEST_CLASS(RaySphereIntersections) {
+	TEST_CLASS(Intersections) {
 	public:
 
+		TEST_METHOD(AnIntersectionObjectExists) {
+			Sphere s = Sphere();
+			Intersection i = intersection(3.5f, s);
+			Assert::AreEqual(i.t, 3.5f);
+			Assert::AreEqual(i.object, s);
+		}
+
+		TEST_METHOD(AggregatingIntersections) {
+			Sphere s = Sphere();
+			Intersection i1 = intersection(1, s);
+			Intersection i2 = intersection(2, s);
+			vector<Intersection> xs = intersections(i1, i2);
+
+			Assert::AreEqual(int(xs.size()), 2);
+			Assert::AreEqual(xs[0].t, 1);
+			Assert::AreEqual(xs[1].t, 2);
+		}
+
+		TEST_METHOD(IntersectSetsObject) {
+			Ray r = Ray(Point(0, 0, -5), Vector(0, 0, 1));
+			Sphere s = Sphere();
+			vector<Intersection> xs = intersect(s, r);
+
+			Assert::AreEqual(int(xs.size()), 2);
+			Assert::AreEqual(xs[0].object, s);
+			Assert::AreEqual(xs[1].object, s);
+		}
+	};
+
+	TEST_CLASS(RaySphereIntersections) {
+	public:
 		TEST_METHOD(RayIntersectsSphereAtTwoPoints) {
 			Ray r = Ray(Point(0, 0, -5), Vector(0, 0, 1));
 			Sphere s = Sphere();
