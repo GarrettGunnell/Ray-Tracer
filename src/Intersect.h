@@ -12,6 +12,10 @@ struct Intersection {
 	Object* object;
 
 	Intersection(float t, Object* o);
+	Intersection(float t);
+
+	friend bool operator== (const Intersection& o1, const Intersection& o2);
 };
 
 vector<Intersection> intersect(Object* s, Ray r);
+Intersection hit(vector<Intersection> xs);

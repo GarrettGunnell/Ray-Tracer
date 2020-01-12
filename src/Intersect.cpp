@@ -7,6 +7,10 @@ Intersection::Intersection(float t, Object* o) {
 	this->object = o;
 }
 
+Intersection::Intersection(float t) {
+	this->t = t;
+}
+
 vector<Intersection> intersect(Object* s, Ray r) {
 	vector<Intersection> xs;
 
@@ -26,4 +30,30 @@ vector<Intersection> intersect(Object* s, Ray r) {
 	xs.push_back(Intersection(t2, s));
 
 	return xs;
+}
+
+Intersection hit(vector<Intersection> xs) {
+	Intersection inter = Intersection(-1);
+
+	for (int i = 0; i < xs.size(); ++i) {
+		if (xs[i].t < 0) {
+			continue;
+		}
+		else if (inter.t < 0) {
+			inter = xs[i];
+		}
+		else if (xs[i].t < inter.t) {
+			inter = xs[i];
+		}
+	}
+
+	if (inter.t < 0) {
+		return NULL;
+	}
+
+	return inter;
+}
+
+bool operator== (const Intersection& o1, const Intersection& o2) {
+	return (o1.t == o2.t) && (o1.object == o2.object);
 }
