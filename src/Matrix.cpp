@@ -1,5 +1,7 @@
 #include "Matrix.h"
 
+Matrix::Matrix() {};
+
 Matrix::Matrix(int size) {
 	this->size = size;
 	this->data = new float*[size];

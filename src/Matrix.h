@@ -9,6 +9,7 @@ private:
 
 public:
 	int size;
+	Matrix();
 	Matrix(int size);
 	void rowOne(float a, float b);
 	void rowOne(float a, float b, float c);
