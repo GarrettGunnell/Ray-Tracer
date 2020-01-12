@@ -1,6 +1,7 @@
 #pragma once
 #include "Color.h"
 #include <string>
+#include <iostream>
 #include <vector>
 
 using namespace std;

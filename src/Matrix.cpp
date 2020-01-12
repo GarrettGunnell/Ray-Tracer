@@ -181,13 +181,11 @@ Matrix subMatrix(Matrix M, int row, int col) {
 	int curRow = 0;
 
 	for (int i = 0; i < M.size; ++i) {
-		std::cout << curRow << std::endl;
 		if (i == row) {
 			continue;
 		}
 		int curCol = 0;
 		for (int j = 0; j < M.size; ++j) {
-			std::cout << curCol << std::endl;
 			if (j == col) {
 				continue;
 			}

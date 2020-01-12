@@ -40,6 +40,9 @@ vector<string> canvasToPPM(Canvas* c) {
 	ppmString.push_back(to_string(c->width) + " " + to_string(c->height));
 	ppmString.push_back("255");
 
+	float count = 0;
+	float progress = 0;
+	float total = c->width * c->height;
 	for (int i = 0; i < c->height; ++i) {
 		string tempPPM = "";
 		for (int j = 0; j < c->width; ++j) {
@@ -56,6 +59,10 @@ vector<string> canvasToPPM(Canvas* c) {
 				}
 			}
 			delete[]pixels;
+
+			++count;
+			progress = count / total;
+			std::cout << progress << std::endl;
 		}
 		ppmString.push_back(tempPPM);
 	}
