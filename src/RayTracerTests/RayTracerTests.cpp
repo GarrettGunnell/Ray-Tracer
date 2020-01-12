@@ -870,6 +870,26 @@ namespace RayTracerTests {
 			Assert::AreEqual(xs[0].t, -6.0f);
 			Assert::AreEqual(xs[1].t, -4.0f);
 		}
+
+		TEST_METHOD(ScaledSphereAndRay) {
+			Ray r = Ray(Point(0, 0, -5), Vector(0, 0, 1));
+			Sphere s = Sphere();
+
+			s.transform = Scaling(2, 2, 2);
+			vector<Intersection> xs = intersect(&s, r);
+			Assert::AreEqual(int(xs.size()), 2);
+			Assert::AreEqual(xs[0].t, 3.0f);
+			Assert::AreEqual(xs[1].t, 7.0f);
+		}
+
+		TEST_METHOD(TranslatedSphereAndRay) {
+			Ray r = Ray(Point(0, 0, -5), Vector(0, 0, 1));
+			Sphere s = Sphere();
+
+			s.transform = Translation(5, 0, 0);
+			vector<Intersection> xs = intersect(&s, r);
+			Assert::AreEqual(int(xs.size()), 0);
+		}
 	};
 
 	TEST_CLASS(Hits) {
