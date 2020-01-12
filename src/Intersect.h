@@ -1,9 +1,17 @@
 #pragma once
 #include <vector>
 #include "Sphere.h"
+#include "Object.h"
 #include "Ray.h"
 #include "Tuple.h"
 
 using namespace std;
 
-vector<float> intersect(Sphere s, Ray r);
+struct Intersection {
+	float t;
+	Object* object;
+
+	Intersection(float t, Object* o);
+};
+
+vector<Intersection> intersect(Object* s, Ray r);

@@ -2,8 +2,13 @@
 
 using namespace std;
 
-vector<float> intersect(Sphere s, Ray r) {
-	vector<float> xs;
+Intersection::Intersection(float t, Object* o) {
+	this->t = t;
+	this->object = o;
+}
+
+vector<Intersection> intersect(Object* s, Ray r) {
+	vector<Intersection> xs;
 
 	Tuple sphereToRay = r.origin - Point(0, 0, 0);
 	float a = dot(r.direction, r.direction);
@@ -17,8 +22,8 @@ vector<float> intersect(Sphere s, Ray r) {
 
 	float t1 = (-b - float(sqrt(discriminant))) / (2 * a);
 	float t2 = (-b + float(sqrt(discriminant))) / (2 * a);
-	xs.push_back(t1);
-	xs.push_back(t2);
+	xs.push_back(Intersection(t1, s));
+	xs.push_back(Intersection(t2, s));
 
 	return xs;
 }

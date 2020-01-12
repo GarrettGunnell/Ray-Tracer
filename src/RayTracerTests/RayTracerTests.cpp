@@ -10,6 +10,7 @@
 #include "../Ray.cpp"
 #include "../Sphere.cpp"
 #include "../Intersect.cpp"
+#include "../Object.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
@@ -757,30 +758,30 @@ namespace RayTracerTests {
 
 		TEST_METHOD(AnIntersectionObjectExists) {
 			Sphere s = Sphere();
-			Intersection i = intersection(3.5f, s);
+			Intersection i = Intersection(3.5f, &s);
 			Assert::AreEqual(i.t, 3.5f);
-			Assert::AreEqual(i.object, s);
+			Assert::IsTrue(*i.object == s);
 		}
 
 		TEST_METHOD(AggregatingIntersections) {
 			Sphere s = Sphere();
-			Intersection i1 = intersection(1, s);
-			Intersection i2 = intersection(2, s);
-			vector<Intersection> xs = intersections(i1, i2);
+			Intersection i1 = Intersection(1, &s);
+			Intersection i2 = Intersection(2, &s);
+			vector<Intersection> xs = { i1, i2 };
 
 			Assert::AreEqual(int(xs.size()), 2);
-			Assert::AreEqual(xs[0].t, 1);
-			Assert::AreEqual(xs[1].t, 2);
+			Assert::AreEqual(xs[0].t, 1.0f);
+			Assert::AreEqual(xs[1].t, 2.0f);
 		}
 
 		TEST_METHOD(IntersectSetsObject) {
 			Ray r = Ray(Point(0, 0, -5), Vector(0, 0, 1));
 			Sphere s = Sphere();
-			vector<Intersection> xs = intersect(s, r);
+			vector<Intersection> xs = intersect(&s, r);
 
 			Assert::AreEqual(int(xs.size()), 2);
-			Assert::AreEqual(xs[0].object, s);
-			Assert::AreEqual(xs[1].object, s);
+			Assert::IsTrue(*xs[0].object == s);
+			Assert::IsTrue(*xs[1].object == s);
 		}
 	};
 
@@ -789,26 +790,26 @@ namespace RayTracerTests {
 		TEST_METHOD(RayIntersectsSphereAtTwoPoints) {
 			Ray r = Ray(Point(0, 0, -5), Vector(0, 0, 1));
 			Sphere s = Sphere();
-			vector<float> xs = intersect(s, r);
+			vector<Intersection> xs = intersect(&s, r);
 
 			Assert::AreEqual(int(xs.size()), 2);
-			Assert::AreEqual(xs[0], 4.0f);
-			Assert::AreEqual(xs[1], 6.0f);
+			Assert::AreEqual(xs[0].t, 4.0f);
+			Assert::AreEqual(xs[1].t, 6.0f);
 		}
 
 		TEST_METHOD(RayIsTangentToSphere) {
 			Ray r = Ray(Point(0, 1, -5), Vector(0, 0, 1));
 			Sphere s = Sphere();
-			vector<float> xs = intersect(s, r);
+			vector<Intersection> xs = intersect(&s, r);
 
 			Assert::AreEqual(int(xs.size()), 2);
-			Assert::AreEqual(xs[0], xs[1], 5.0f);
+			Assert::AreEqual(xs[0].t, xs[1].t, 5.0f);
 		}
 
 		TEST_METHOD(RayMissesASphere) {
 			Ray r = Ray(Point(0, 2, -5), Vector(0, 0, 1));
 			Sphere s = Sphere();
-			vector<float> xs = intersect(s, r);
+			vector<Intersection> xs = intersect(&s, r);
 
 			Assert::AreEqual(int(xs.size()), 0);
 		}
@@ -816,21 +817,21 @@ namespace RayTracerTests {
 		TEST_METHOD(RayOriginatesInsideSphere) {
 			Ray r = Ray(Point(0, 0, 0), Vector(0, 0, 1));
 			Sphere s = Sphere();
-			vector<float> xs = intersect(s, r);
+			vector<Intersection> xs = intersect(&s, r);
 
 			Assert::AreEqual(int(xs.size()), 2);
-			Assert::AreEqual(xs[0], -1.0f);
-			Assert::AreEqual(xs[1], 1.0f);
+			Assert::AreEqual(xs[0].t, -1.0f);
+			Assert::AreEqual(xs[1].t, 1.0f);
 		}
 
 		TEST_METHOD(ASphereIsBehindARay) {
 			Ray r = Ray(Point(0, 0, 5), Vector(0, 0, 1));
 			Sphere s = Sphere();
-			vector<float> xs = intersect(s, r);
+			vector<Intersection> xs = intersect(&s, r);
 
 			Assert::AreEqual(int(xs.size()), 2);
-			Assert::AreEqual(xs[0], -6.0f);
-			Assert::AreEqual(xs[1], -4.0f);
+			Assert::AreEqual(xs[0].t, -6.0f);
+			Assert::AreEqual(xs[1].t, -4.0f);
 		}
 	};
 }

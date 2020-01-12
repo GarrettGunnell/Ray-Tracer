@@ -1,6 +1,8 @@
 #pragma once
+#include "Object.h"
+#include <stdlib.h>
 
-class Sphere {
+class Sphere : public Object {
 public:
 	Sphere();
 };
