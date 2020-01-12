@@ -9,14 +9,16 @@ Intersection::Intersection(float t, Object* o) {
 
 Intersection::Intersection(float t) {
 	this->t = t;
+	this->object = NULL;
 }
 
 vector<Intersection> intersect(Object* s, Ray r) {
 	vector<Intersection> xs;
+	Ray r2 = transform(r, inverse(s->transform));
 
-	Tuple sphereToRay = r.origin - Point(0, 0, 0);
-	float a = dot(r.direction, r.direction);
-	float b = 2 * dot(r.direction, sphereToRay);
+	Tuple sphereToRay = r2.origin - Point(0, 0, 0);
+	float a = dot(r2.direction, r2.direction);
+	float b = 2 * dot(r2.direction, sphereToRay);
 	float c = dot(sphereToRay, sphereToRay) - 1;
 
 	float discriminant = b * b - 4 * a * c;
