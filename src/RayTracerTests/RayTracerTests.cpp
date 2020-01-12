@@ -834,4 +834,54 @@ namespace RayTracerTests {
 			Assert::AreEqual(xs[1].t, -4.0f);
 		}
 	};
+
+	TEST_CLASS(Hits) {
+	public:
+
+		TEST_METHOD(HitWhenAllIntersectionsArePositive) {
+			//A hit returns the intersection with the lower t value
+			Sphere s = Sphere();
+			Intersection i1 = Intersection(1, &s);
+			Intersection i2 = Intersection(2, &s);
+			vector<Intersection> xs = { i1, i2 };
+			Intersection i = hit(xs);
+
+			Assert::IsTrue(i == i1);
+		}
+
+		TEST_METHOD(HitWhenSomeIntersectsAreNegative) {
+			//A hit returns the intersection with the lowest, non-negative t value
+			Sphere s = Sphere();
+			Intersection i1 = Intersection(-1, &s);
+			Intersection i2 = Intersection(1, &s);
+			vector<Intersection> xs = { i1, i2 };
+			Intersection i = hit(xs);
+
+			Assert::IsTrue(i == i2);
+		}
+
+		TEST_METHOD(HitWhenAllIntersectsAreNegative) {
+			//A hit returns null when all intersects are negative
+			Sphere s = Sphere();
+			Intersection i1 = Intersection(-1, &s);
+			Intersection i2 = Intersection(-2, &s);
+			vector<Intersection> xs = { i1, i2 };
+			Intersection i = hit(xs);
+
+			Assert::IsTrue(i == NULL);
+		}
+
+		TEST_METHOD(HitSortsT) {
+			//A hit is always the lowest nonnegative intersection
+			Sphere s = Sphere();
+			Intersection i1 = Intersection(5, &s);
+			Intersection i2 = Intersection(7, &s);
+			Intersection i3 = Intersection(-3, &s);
+			Intersection i4 = Intersection(2, &s);
+			vector<Intersection> xs = { i1, i2, i3, i4 };
+			Intersection i = hit(xs);
+
+			Assert::IsTrue(i == i4);
+		}
+	};
 }
