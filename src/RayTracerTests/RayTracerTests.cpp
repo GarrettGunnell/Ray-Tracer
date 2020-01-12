@@ -751,6 +751,24 @@ namespace RayTracerTests {
 			Assert::IsTrue(r.positionAt(-1) == Point(1, 3, 4));
 			Assert::IsTrue(r.positionAt(2.5) == Point(4.5f, 3, 4));
 		}
+
+		TEST_METHOD(TranslatingARay) {
+			Ray r = Ray(Point(1, 2, 3), Vector(0, 1, 0));
+			Matrix m = Translation(3, 4, 5);
+			Ray r2 = transform(r, m);
+
+			Assert::IsTrue(r2.origin == Point(4, 6, 8));
+			Assert::IsTrue(r2.direction == r.direction);
+		}
+
+		TEST_METHOD(ScalingARay) {
+			Ray r = Ray(Point(1, 2, 3), Vector(0, 1, 0));
+			Matrix m = Scaling(2, 3, 4);
+			Ray r2 = transform(r, m);
+
+			Assert::IsTrue(r2.origin == Point(2, 6, 12));
+			Assert::IsTrue(r2.direction == Vector(0, 3, 0));
+		}
 	};
 
 	TEST_CLASS(Intersections) {
