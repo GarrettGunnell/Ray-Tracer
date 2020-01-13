@@ -4,9 +4,12 @@ Matrix::Matrix() {};
 
 Matrix::Matrix(int size) {
 	this->size = size;
-	this->data = new float*[size];
 	for (int i = 0; i < size; ++i) {
-		this->data[i] = new float[size];
+		vector<float> v;
+		for (int j = 0; j < size; ++j) {
+			v.push_back(0);
+		}
+		this->data.push_back(v);
 	}
 }
 

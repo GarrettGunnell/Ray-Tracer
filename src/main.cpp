@@ -16,8 +16,8 @@ double map(double input, double input_start, double input_end, double output_sta
 
 int main() {
 	
-	int width = 839;
-	int height = 400;
+	int width = 200;
+	int height = 200;
 	Canvas c = Canvas(width, height);
 	Sphere s = Sphere();
 	s.transform = Translation(width / 2, height / 2, 0);

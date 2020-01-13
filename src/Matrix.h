@@ -1,11 +1,14 @@
 #pragma once
 #include <iostream>
 #include "Tuple.h"
+#include <vector>
+
+using namespace std;
 
 
 class Matrix {
 private:
-	float** data;
+	vector<vector<float>> data;
 
 public:
 	int size;
