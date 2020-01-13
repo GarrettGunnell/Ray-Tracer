@@ -199,13 +199,14 @@ Matrix subMatrix(Matrix M, int row, int col) {
 }
 
 Matrix inverse(Matrix M) {
-	if (!M.invertible()) {
+	float det = determinant(M);
+
+	if (det == 0) {
 		std::cout << "Matrix has no inverse" << std::endl;
 		exit(0);
 	}
 
 	Matrix A = Matrix(M.size);
-	float det = determinant(M);
 
 	for (int row = 0; row < M.size; ++row) {
 		for (int col = 0; col < M.size; ++col) {
