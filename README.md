@@ -8,4 +8,8 @@ Ray Tracer Challenge</u>. You can find the book
 ## Progress
 
 ### Chapter 2
-![Sin Wave](https://i.imgur.com/ZIdkeBX.png)
+![Sin Wave](https://i.imgur.com/ZIdkeBX.png)  
+
+### Chapter 5
+![Raycasted Sphere](https://i.imgur.com/MpH8GIl.png)  
+Rendering the silhouette of a sphere.
